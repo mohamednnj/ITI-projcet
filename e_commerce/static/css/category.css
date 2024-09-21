@@ -13,4 +13,11 @@ h1 {
   margin-bottom: 50px;
 }
 #imgtitle {
+  text-decoration: none !important;
+  color: white;
+}
+#imgtitle:hover {
+  color: #b67130;
+  transition: 500ms;
+  transition-timing-function: ease-in-out;
 }
