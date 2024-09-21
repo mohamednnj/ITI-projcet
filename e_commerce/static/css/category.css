@@ -1,4 +1,4 @@
-body {
+body,.card-body {
   background-color: #101010;
 }
 h1 {
@@ -8,16 +8,32 @@ h1 {
   text-align: center;
   color: white;
   height: 320px;
+  object-fit: cover;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(Rectangle_38937_2.jpg);
+    url(../images/panner.jpg);
   margin-bottom: 50px;
 }
 #imgtitle {
   text-decoration: none !important;
   color: white;
 }
-#imgtitle:hover {
+.card-title{
+  font-weight: 1200 !important;
+  font-size: 26px;
+}
+.card-title:hover {
   color: #b67130;
   transition: 500ms;
-  transition-timing-function: ease-in-out;
+  transition: ease-in-out;
+}
+.card{
+outline-style: none;
+border: none;
+}
+.body{
+  margin-top: 96px;
+} 
+
+.cat{
+padding: 0 15vh ;
 }

@@ -5,12 +5,12 @@
 <link rel="stylesheet" href="{% static 'css/category.css' %}"> {% endblock%}
 
 {% block title %}Category{% endblock title %}
-
 {% block content %}
-
+<div class="body">
 <h1>All Categories</h1>
 
-<div class="row p-3">
+<section class="cat">
+<div class="row p-3 ">
     <div class="col-sm-3">
         <div class="card text-white bg-dark mb-3">
             <a href="#"><img class="card-img-top"
@@ -67,4 +67,5 @@
         </div>
     </div>
 </div>
+</section>
 {% endblock content %}
