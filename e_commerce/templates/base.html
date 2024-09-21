@@ -10,6 +10,7 @@
     <title>{% block title %}my page{% endblock title %}</title>
 </head>
 <body>
+    {% include 'parts/navbar.html' %}
     {% block content %}
         
     {% endblock content %}
