@@ -10,9 +10,16 @@
     {%endblock%}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+=======
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+>>>>>>> d0e0b14de822366a907c2814f452531fee0e6824
     <title>{% block title %}my page{% endblock title %}</title>
 </head>
 
@@ -21,11 +28,12 @@
     {% block content %}
 
     {% endblock content %}
+    {% include 'parts/footer.html' %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="{% static 'js/index.js' %}"></script>
-    {% include 'parts/footer.html' %}
+
 </body>
 
 </html>
