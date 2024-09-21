@@ -2,7 +2,13 @@ body {
   background-color: #101010;
 }
 h1 {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
   text-align: center;
   color: white;
-  background-image: url(Rectangle_38937_2.jpg);
+  height: 320px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(Rectangle_38937_2.jpg);
+  margin-bottom: 50px;
 }
