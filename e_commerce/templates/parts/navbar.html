@@ -5,8 +5,8 @@
             <img class="logo-img" src="{% static 'images/logo.png' %}" alt="Logo">
         </div>
         <ul class="nav-items">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">COLLECTIONS</a></li>
+            <li><a href="{% url 'homePage' %}">HOME</a></li>
+            <li><a href="{% url 'category' %}">CATEGORY</a></li>
             <li class="dropdown">
                 <a href="#">SHOP <i class="fi fi-ts-angle-small-down"></i></a>
                 <div class="dropdown-menu">
