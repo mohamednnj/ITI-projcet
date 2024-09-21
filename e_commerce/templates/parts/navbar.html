@@ -1,0 +1,39 @@
+{% load static %}
+<header>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li><a href="#">HOME</a></li>
+            <li class="dropdown">
+                <a href="#">COLLECTIONS</a>
+                <div class="dropdown-menu">
+                    <div class="menu-column">
+                        <h3>Furniture</h3>
+                        <ul>
+                            <li><a href="#">Writing Desks</a></li>
+                            <li><a href="#">Computer Desks</a></li>
+                            <li><a href="#">Office Chairs</a></li>
+                            <li><a href="#">File Cabinets</a></li>
+                            <li><a href="#">Dining Chairs</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-column">
+                        <h3>Decor & Accessories</h3>
+                        <ul>
+                            <li><a href="#">Pillows & Throws</a></li>
+                            <li><a href="#">Wall Clocks</a></li>
+                            <li><a href="#">Wall Art & Mirrors</a></li>
+                            <li><a href="#">Seasonal Decor</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-column images">
+                        <img src="{% static 'images/nav1.jpg'%}" alt="Product 1">
+                        <img src="{% static 'images/nav2.jpg'%" alt="Product 2">
+                    </div>
+                </div>
+            </li>
+            <li><a href="#">SHOP</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
