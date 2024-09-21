@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.slideshow-container {
+  height: 90vh;
+  top: 500;
+  width: 100%;
+  position: relative;
+  margin-top: 96px;
+  overflow: hidden;
+  z-index: 10 !important;
+}
+
+.slide {
+  display: none;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.text-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  height: 240px;
+  width: 600px;
+}
+.text-container p{
+   height: 95px;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+   overflow: hidden; 
+}
+.shop-now-button {
+  background-color: #ff6600;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.prev {
+  left: 50px;
+}
+
+.next {
+  right: 50px;
+}
+
+.dot-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active.dot {
+  background-color: #717171;
+}
+
+footer {
+  bottom: 0;
+}

@@ -1,10 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block style %} "{% static "css/style.css" %}" {% endblock style %}
+{% block style %} <link rel="stylesheet" href="{% static "css/home.css" %}" > {% endblock style %}
 
 {% block title %}home page{% endblock title %}
 
 {% block content %}
+<div class="slideshow-container">
+    {% for ban in banner %}
+    
+    <div class="slide">
+        {% if ban.image %}
+            <img src="{% static 'images/panner.jpg' %}" alt="Ban Image">
+        {% else %}
+            <p>No image available.</p>
+        {% endif %}
+        <div class="text-container">
+            <h2>{{ban.name}}</h2>
+            <p>{{ban.description}}</p>
+            <button class="shop-now-button">Shop Now</button>
+        </div>
+    </div>
+    
+    {% endfor %}
 
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<div class="dot-container">
+    {% for ban in banner %}
+    <span class="dot" onclick="currentSlide(ban.pk)"></span>
+    {% endfor %}
+</div>
 {% endblock content %}

@@ -25,7 +25,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows wrapping in case of small screens */
+    flex-wrap: wrap; 
 }
 
 .nav-items {
