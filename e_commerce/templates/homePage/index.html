@@ -11,7 +11,7 @@
     
     <div class="slide">
         {% if ban.image %}
-            <img src="{% static 'images/panner.jpg' %}" alt="Ban Image">
+            <img src="{{ban.image.url}}" alt="{{ban.name}}">
         {% else %}
             <p>No image available.</p>
         {% endif %}

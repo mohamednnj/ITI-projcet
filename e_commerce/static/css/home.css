@@ -27,7 +27,6 @@ body {
 
 .text-container {
   position: absolute;
-  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   color: white;
@@ -57,11 +56,12 @@ body {
 
 .prev,
 .next {
+  background-color: #ff6600;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   padding: 10px;
-  color: white;
+  color: #ff6600;
   font-size: 18px;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);
