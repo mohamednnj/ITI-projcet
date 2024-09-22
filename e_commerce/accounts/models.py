@@ -4,10 +4,15 @@ from django.db import models
 from product.models import Product
 
 # Create your models here.
+
+# User Manager
 class UserManager(BaseUserManager):
     def create_user(self, email, username, password=None):
         if not email:
             raise ValueError('Users must have an email address')
+        if not username:
+            raise ValueError('Users must have a username')
+        
         user = self.model(email=self.normalize_email(email), username=username)
         user.set_password(password)
         user.save(using=self._db)
@@ -16,18 +21,21 @@ class UserManager(BaseUserManager):
     def create_superuser(self, email, username, password=None):
         user = self.create_user(email, username, password)
         user.is_admin = True
+        user.is_staff = True  # Ensure superuser is marked as staff
+        user.is_superuser = True  # Ensure superuser has all permissions
         user.save(using=self._db)
         return user
 
-class User(AbstractBaseUser,  PermissionsMixin):
+# User Model
+class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     username = models.CharField(max_length=255, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    is_staff = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)  # Staff can access the admin site
     is_superuser = models.BooleanField(default=False)
-    image = models.ImageField()
-    prefer = models.ManyToManyField(Product)
+    image = models.ImageField(upload_to='profile_images/')  # Define where images will be uploaded
+    prefer = models.ManyToManyField(Product, blank=True)  # Allow empty preferences
     join_date = models.DateTimeField(auto_now_add=True)
 
     objects = UserManager()
@@ -39,11 +47,11 @@ class User(AbstractBaseUser,  PermissionsMixin):
         return self.username
 
     def has_perm(self, perm, obj=None):
-        return True
+        return True  # Adjust as per your permission system
 
     def has_module_perms(self, app_label):
-        return True
-
+        return True 
     # @property 
     # def is_staff(self):
     #     return self.is_admin
+    

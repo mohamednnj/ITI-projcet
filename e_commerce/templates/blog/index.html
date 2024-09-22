@@ -11,21 +11,22 @@
         <div class="content">
             <div class="container">
                 <div class="row">
+                {% for blog in blogs %}
+        
                     <div class="col-xs-12 col-sm-4">
                         <div class="card">
                             <a class="img-card" href="#">
                                 <img
-                                    src="https://wdt-teapoy.myshopify.com/cdn/shop/articles/blog-07_5bd8baf1-141e-4d3e-bba5-5bbf596e3f88.jpg?v=1722317675" />
+                                    src="{{blog.image.url}}" />
                             </a>
                             <div class="card-content">
                                 <h4 class="card-title">
                                     <a href="#">
-                                        Elegant & Essential Dinning Hall Furniture
+                                        {{blog.name}}
                                     </a>
                                 </h4>
                                 <p class="card-description">
-                                    Because nothing says 'classy' like a table that doubles as a laundry station. Dine
-                                    in style—if you can find the time between piles of stuff!
+                                    {{blog.descrption}}
                                 </p>
                             </div>
                             <div class="card-read-more">
@@ -35,7 +36,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4">
+                    {% endfor %}
+                    {% comment %} <div class="col-xs-12 col-sm-4">
                         <div class="card">
                             <a class="img-card" href="#">
                                 <img
@@ -82,7 +84,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
