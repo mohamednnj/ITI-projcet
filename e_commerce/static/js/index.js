@@ -39,7 +39,7 @@ document.addEventListener('mouseleave', function(event) {
         dots[slideIndex - 1].className += " active";
 
         // Automatically move to the next slide every 3 seconds
-        slideInterval = setTimeout(showSlides, 1000);
+        slideInterval = setTimeout(showSlides, 5000);
     }
 
     // Function to move to the next/previous slide
