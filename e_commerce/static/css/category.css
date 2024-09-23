@@ -37,3 +37,6 @@ h1 {
 .cat {
   padding: 0 15vh;
 }
+#cardcontainer {
+  padding-left: 135px;
+}
