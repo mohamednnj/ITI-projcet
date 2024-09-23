@@ -21,19 +21,30 @@ h1 {
   font-weight: 1200 !important;
   font-size: 26px;
 }
+.card-title {
+  font-weight: 1200 !important;
+  font-size: 26px;
+  transition: color 400ms ease; /* Ensure transition is applied to color */
+}
+
 .card-title:hover {
   color: #b67130;
-  transition: 500ms;
-  transition: ease-in-out;
 }
-.card {
-  outline-style: none;
-  border: none;
-}
+
 .body {
   margin-top: 96px;
 }
 
 .cat {
   padding: 0 15vh;
+}
+#cardcontainer {
+  padding-left: 135px;
+}
+.card {
+  transition: 0.3s all ease-in-out;
+}
+.card:hover {
+  box-shadow: 2px 2px 15px #d7d4d2e5;
+  transform: scale(1.02);
 }
