@@ -38,22 +38,52 @@ document.addEventListener('mouseleave', function(event) {
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
 
-        // Automatically move to the next slide every 3 seconds
+        // Automatically move to the next slide every 5 seconds
         slideInterval = setTimeout(showSlides, 5000);
     }
 
     // Function to move to the next/previous slide
     function plusSlides(n) {
-        clearTimeout(slideInterval);  // Stop automatic sliding
-        slideIndex += n;              // Adjust the slide index
+        clearTimeout(slideInterval);  
+        slideIndex += n;              
         if (slideIndex >= slides.length) slideIndex = 0;
         if (slideIndex < 0) slideIndex = slides.length - 1;
-        showSlides();                  // Show the updated slide
+        showSlides();                  
     }
 
     // Function to go to a specific slide
     function currentSlide(n) {
-        clearTimeout(slideInterval);   // Stop automatic sliding
-        slideIndex = n - 1;            // Set the slide index to the clicked dot
-        showSlides();                  // Show the selected slide
+        clearTimeout(slideInterval);  
+        slideIndex = n - 1;            
+        showSlides();                  
     }
+
+
+    // login from action
+const screenCover = document.getElementsByClassName("full-screen-div")
+const modal = document.getElementById("loginModal");
+const btn = document.getElementById("btn-login");
+const closeBtn = document.getElementsByClassName("close")[0];
+
+var messageElement = document.getElementById('message');
+var messageExists = messageElement !== null;
+
+console.log(messageExists); 
+
+if (messageExists){
+    modal.style.display = "block";
+}
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+}
+
+
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }

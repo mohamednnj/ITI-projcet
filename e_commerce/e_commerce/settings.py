@@ -143,3 +143,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # make auth setting
+LOGOUT_REDIRECT_URL = '/'

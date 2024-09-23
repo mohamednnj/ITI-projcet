@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Profile {% endblock title %}
+{%block style%}<link rel="stylesheet" href="{%static 'css/profile.css' %}">{%endblock style%}
+
+
+{% block content %}
+<div class="profile-content">
+  
+  <div class="profile-user-info" >
+    <div class="con-img">
+      {% if user.image %}
+        <img src="{{user.image.url}}" class="user-image" alt="User Image" >
+      {% else %}
+        <img src="{{user.image.url}}" class="user-image" alt="User Image" >
+      {% endif %}
+    </div>
+    <p class="user-data name-name">{{user.username}}</p>
+    <p class="user-data">{{user.phone}}</p>
+    <p class="user-data">{{user.email}}</p>
+    <form method="POST" action="{% url 'logout' %}">
+      {% csrf_token %}
+      <button class="logout"type="submit"><i class="fi fi-bs-user">Logout</i></button>
+    </form>
+  </div>
+
+
+  <div class="card-profile-body">
+    <h1 class="profile-title">My Profile</h1>
+    <h2>Order history</h2>
+    {% if orders %}
+      {% for order in orders %}
+        <p>order.name</p>
+      {% endfor %}
+    {% else %}
+      <p>You haven't placed any orders yet.</p>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock content %}

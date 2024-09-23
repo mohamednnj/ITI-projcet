@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  /* background-color: #f4f4f4; */
 }
 
 .slideshow-container {
@@ -12,7 +12,7 @@ body {
   position: relative;
   margin-top: 96px;
   overflow: hidden;
-  z-index: 10 !important;
+  z-index: 2 !important;
 }
 
 .slide {
@@ -102,6 +102,89 @@ body {
   background-color: #717171;
 }
 
-footer {
-  bottom: 0;
+/* login form */
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  color: #ffffff;
+  background-color: #ca740a;
+  font-size: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color .6s ease;
 }
+
+.close:hover,
+.close:focus {
+  background-color: #f0890b;
+  text-decoration: none;
+  cursor: pointer;
+}
+.signin-label{
+  font-family: serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #f4f4f4 ;
+
+}
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background-color: #101010;
+  margin: 15% auto; 
+  padding: 20px;
+  width: 45%;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+}
+
+.modal-content button {
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #f0890b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 55px;
+  max-width: 200px;
+  transition: background-color .5s ease-in-out;
+}
+
+.modal-content button:hover {
+  background-color: rgb(188, 186, 185);
+}
+#message{
+  font-size: 28px;
+  font-weight: 300;
+  font-family: Arial, Helvetica, sans-serif;
+  color: brown;
+}
+/* login form end */
