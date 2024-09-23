@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+# Create your views here.
 from .models import Product
 # Create your views here.
 def product(req):

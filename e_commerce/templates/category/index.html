@@ -9,62 +9,25 @@
 <div class="body">
     <h1>All Categories</h1>
 
-
-    <div class="row-cols-5 d-flex flex-wrap gap-3" id="cardcontainer">
-        {% for catgory in categories %}
-        <div class="card text-white bg-dark mb-3 d-flex flex-column align-items-center ">
-            <a href="#"><img class="card-img-top" src="{{category.image}}" alt="Card image cap" href="#"></a>
-            <div class="card-body">
-
-                <a href="#" id="imgtitle">
-                    <h5 class="card-title text-center">{{category.name}}</h5>
-                </a>
-                <p class="text-center">3 items</p>
+    <div class="row p-3 ">
+        {% for category in categorys %}
 
 
+        <div class="col-sm-3">
+            <div class="card text-white bg-dark mb-3">
+                <a href="#"><img class="card-img-top" src="{{category.image.url}}" alt="{{category.name}}" href="#"></a>
+                <div class="card-body">
+
+                    <a href="#" id="imgtitle">
+                        <h5 class="card-title text-center">{{category.description}}</h5>
+                    </a>
+                    <p class="text-center">item {{category.pk}}</p>
+
+
+                </div>
             </div>
         </div>
         {% endfor %}
+
     </div>
-
-    <!-- <div class="col-sm-3">
-            <div class="card text-white bg-dark mb-3">
-                <img class="card-img-top"
-                    src="https://wdt-teapoy.myshopify.com/cdn/shop/files/shop-4-01.jpg?v=1722316949&width=750"
-                    alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Special title treatment</h5>
-                    <p class="text-center">2 items</p>
-
-
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-white bg-dark mb-3">
-                <img class="card-img-top"
-                    src="https://wdt-teapoy.myshopify.com/cdn/shop/files/shop-4-01.jpg?v=1722316949&width=750"
-                    alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Special title treatment</h5>
-                    <p class="text-center">4 items</p>
-
-
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-white bg-dark mb-3">
-                <img class="card-img-top"
-                    src="https://wdt-teapoy.myshopify.com/cdn/shop/files/shop-4-01.jpg?v=1722316949&width=750"
-                    alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Special title treatment</h5>
-                    <p class="text-center">5 items</p>
-
-
-                </div>
-            </div>
-        </div>
-    </div> -->
     {% endblock content %}

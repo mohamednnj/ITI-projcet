@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'category.apps.CategoryConfig',
     'homePage.apps.HomepageConfig',
-    'product.apps.ProductConfig',
+    'product',
     'blog.apps.BlogConfig',
 ]
 
@@ -134,7 +134,7 @@ STATICFILES_DIRS = [
 
 #  config your madia file
 
-MEDIA_URL = './media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type

@@ -161,7 +161,7 @@
             {% for product in products %}
             <div class="card d-flex flex-column align-items-center">
                 <div class="product-name">{{product.name}}</div>
-                <div class="card-img"> <img src="{{product.image}}" alt=""> </div>
+                <div class="card-img"> <img src="{{product.image.url}}" alt="{{product.name}}"> </div>
                 <div class="card-body pt-5">
                     <div class="d-flex align-items-center price">
                         <div class="font-weight-bold">{{product.price}}</div>
