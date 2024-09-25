@@ -2,59 +2,105 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-{% endblock style %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/main-info.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home-product.css' %}" />
+{% endblock %}
 
-{% block title %}home page{% endblock title %}
+{% block title %}
+  home page
+{% endblock %}
 
 {% block content %}
-<div id="home"></div>
-<div class="slideshow-container">
+  <div id="home"></div>
+  <div class="slideshow-container">
     {% for ban in banner %}
-
-    <div class="slide">
+      <div class="slide">
         {% if ban.image %}
-        <img src="{{ban.image.url}}" alt="{{ban.name}}">
+          <img src="{{ ban.image.url }}" alt="{{ ban.name }}" />
         {% else %}
-        <p>No image available.</p>
+          <p>No image available.</p>
         {% endif %}
         <div class="text-container">
-            <h2>{{ban.name}}</h2>
-            <p>{{ban.description}}</p>
-            <button class="shop-now-button">Shop Now</button>
+          <h2>{{ ban.name }}</h2>
+          <p>{{ ban.description }}</p>
+          <button class="shop-now-button">Shop Now</button>
         </div>
-    </div>
-
+      </div>
     {% endfor %}
 
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
+  </div>
 
-<div class="dot-container">
+  <div class="dot-container">
     {% for ban in banner %}
-    <span class="dot" onclick="currentSlide(ban.pk)"></span>
+      <span class="dot" onclick="currentSlide(ban.pk)"></span>
     {% endfor %}
-</div>
-<div class="carousel-container">
+  </div>
+  <div class="carousel-container">
     {% for product in products %}
-    <div class="carousel">
+      <div class="carousel">
         <!-- Product Card -->
         <div class="product-card">
-            <img src="{{product.image}}">
-            <h3>{{product.name}}</h3>
-            <p>{{product.description}}</p>
-            <span>{{product.price}}</span>
+          <img src="{{ product.image }}" />
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description }}</p>
+          <span>{{ product.price }}</span>
         </div>
-    </div>
+      </div>
 
-    <!-- Navigation Dots -->
-    <div class="dots">
+      <!-- Navigation Dots -->
+      <div class="dots">
         <span class="dot" onclick="currentSlide(product.pk)"></span>
-    </div>
+      </div>
     {% endfor %}
-</div>
-{% endblock content %}
+  </div>
+  <main>
+    <section class="info">
+      <div class="sec-info">
+        <h3>Exceptional Furniture's For Indoor & Outdoor</h3>
+        <p>Ut eleifend mattis ligula, porta finibus urna gravida at. Aenean vehicula sodales arcu non mattis. Integer dapibus ac dui pretium blandit.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        <img src="{% static 'images/img-1.jpg' %}" alt="image-home" />
+      </div>
+      <div class="sec-info">
+        <img src="{% static 'images/img-2.jpg' %}" alt="image-home" />
+        <h3>Discover Endless Designs</h3>
+        <p>Integer dapibus ac dui pretium blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut eleifend mattis ligula, porta finibus urna gravida at. Aenean vehicula sodales arcu non mattis.</p>
+      </div>
+    </section>
+  </main>
+  <div class="pro-section">
+    <div style="display: flex; justify-content: center;">
+      <h2>Recently Added Products</h2>
+    </div>
+    <div class="main-pro">
+      <div class="product-container">
+        {% for pro in products_recintly_added %}
+          <div class="product-slide">
+            <div class="image-container">
+              <img src="{{ pro.image.url }}" alt="Modern Ceramic Lamp" />
+            </div>
+            <div class="product-info">
+              <p class="category">{{ pro.category }}</p>
+              <h3 class="product-name">{{ pro.name }}</h3>
+              <p class="price">$ {{ pro.price }}</p>
+            </div>
+          </div>
+        {% endfor %}
+        <button class="prev-p">&#10094;</button>
+        <button class="next-p">&#10095;</button>
+      </div>
+      <div class="dots-container">
+        {% for pro in products_recintly_added %}
+          <span class="dot-p"></span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
 
 {% block scriptblock %}
-<script src="{% static 'js/handelLogin.js' %}"></script>{% endblock scriptblock %}
+  <script src="{% static 'js/handelLogIn.js' %}"></script>
+  <script src="{% static 'js/home_pro.js' %}"></script>
+{% endblock %}
