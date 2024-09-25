@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'category.apps.CategoryConfig',
     'homePage.apps.HomepageConfig',
+    'contact.apps.ContactConfig',
     'product',
     'blog.apps.BlogConfig',
 ]

@@ -19,3 +19,12 @@
 .sidebar-and-products {
   display: flex;
 }
+label {
+  display: contents;
+}
+#typeNumber {
+  background-color: #272424;
+}
+.form-check-input {
+  background-color: white;
+}
