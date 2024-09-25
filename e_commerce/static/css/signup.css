@@ -1,0 +1,59 @@
+  #loginModal {
+    width: 600px;
+    min-width: 500;
+    margin: 96px auto 0;
+    padding: 40px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+
+  label {
+    display: none;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="file"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #333;
+  }
+
+  input[type="file"] {
+    color: #ffffff;
+    background-color: #dedede;
+  }
+
+  /* Styling for the submit button */
+  button#signin {
+    background-color: #f48220;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .signup-text {
+    font-size: 26px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .signup-text a {
+    color: #f48220;
+    text-decoration: none;
+  }
+  .errorlist li{
+    color: #fff;
+}

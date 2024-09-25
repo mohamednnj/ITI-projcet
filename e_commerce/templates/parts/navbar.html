@@ -4,7 +4,7 @@
         <div class="logo">
             <img class="logo-img" src="{% static 'images/logo.png' %}" alt="Logo">
         </div>
-        <ul class="nav-items">
+        <ul class="nav-items" id="nav-items">
             <li><a href="{% url 'homePage' %}">HOME</a></li>
             <li><a href="{% url 'category' %}">CATEGORY</a></li>
             <li class="dropdown">
@@ -39,6 +39,7 @@
             <li><a href="#">CONTACT</a></li>
         </ul>
         <div class="nav-icon">
+            <i class="fi fi-rr-menu-burger" id="nav-btn"></i>
             <a href="#"><i class="fi fi-bs-heart"></i></a>
             <a href="#"><i class="fi fi-ts-cart-arrow-down"></i></a>
             {% if user.id %}

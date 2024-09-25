@@ -6,7 +6,10 @@
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <div class="close">&times;</div>
-            <p class="signin-label">{% if signup %}Signup{%else%}Login{%endif%}</p>
+            <p class="signin-label">Login</p>
+            {% if not user.pk %}
+            <p id="message" style="display: none;">" "</p>
+            {% endif %}
             {% if messages %}
                 {% for message in messages %}
                     <p id="message">{{ message }}</p>
@@ -15,7 +18,7 @@
             {{form}}
             <button id="signin">Sign In</button>
             {% if not signup %}
-                <p class="mt-3">New Member? <a href="{% url 'homePage' %}">Register</a></p>
+                <p class="mt-3 log">New Member? <a href="{% url 'signup' %}">Register</a></p>
             {%endif%}
             
         </div>

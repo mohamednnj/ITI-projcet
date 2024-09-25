@@ -58,32 +58,30 @@ document.addEventListener('mouseleave', function(event) {
         showSlides();                  
     }
 
+// handel navbar
 
-    // login from action
-const screenCover = document.getElementsByClassName("full-screen-div")
-const modal = document.getElementById("loginModal");
-const btn = document.getElementById("btn-login");
-const closeBtn = document.getElementsByClassName("close")[0];
+function addParagraphToNavbar() {
+    const windowWidth = window.innerWidth;
 
-var messageElement = document.getElementById('message');
-var messageExists = messageElement !== null;
+    if (windowWidth <= 1200) {
 
-console.log(messageExists); 
+        const navItems = document.getElementById('nav-items');
+        const navBtn = document.getElementById('nav-btn');
+        navItems.style.display="none"
+        navBtn.style.display="block"
+        
+    }
+    if (windowWidth >= 1200) {
 
-if (messageExists){
-    modal.style.display = "block";
+        const navItems = document.getElementById('nav-items');
+        const navBtn = document.getElementById('nav-btn');
+        navItems.style.display="flex"
+        navBtn.style.display="none"
+        
+    }
 }
-btn.onclick = function() {
-    modal.style.display = "block";
-}
 
-closeBtn.onclick = function() {
-    modal.style.display = "none";
-}
+window.onload = addParagraphToNavbar;
 
+window.onresize = addParagraphToNavbar;
 
-// window.onclick = function(event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// }

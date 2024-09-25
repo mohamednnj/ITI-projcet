@@ -90,8 +90,7 @@ DATABASES = {
         "HOST": "aws-0-eu-central-1.pooler.supabase.com",
         "PORT": "6543",
     }
-}
-
+} 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -144,3 +143,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # make auth setting
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'

@@ -61,13 +61,17 @@
                                     aria-labelledby="headingTwo">
                                     <div class="accordion-body">
                                         <div>
+                                            {% for category in categorys %}
+                                                  
                                             <!-- Checked checkbox -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
                                                     id="flexCheckChecked1" checked />
-                                                <label class="form-check-label" for="flexCheckChecked1">Mercedes</label>
-                                                <span class="badge badge-secondary float-end">120</span>
+                                                <label class="form-check-label" for="flexCheckChecked1">{{category.name}}</label>
+                                                <span class="badge badge-secondary float-end">{{category.pk}}</span>
                                             </div>
+                                            {% endfor %}
+{% comment %}                                             
                                             <!-- Checked checkbox -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
@@ -89,7 +93,7 @@
                                                     id="flexCheckChecked4" checked />
                                                 <label class="form-check-label" for="flexCheckChecked4">Nissan</label>
                                                 <span class="badge badge-secondary float-end">89</span>
-                                            </div>
+                                            </div> 
                                             <!-- Default checkbox -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
@@ -97,6 +101,7 @@
                                                 <label class="form-check-label" for="flexCheckDefault">Honda</label>
                                                 <span class="badge badge-secondary float-end">30</span>
                                             </div>
+                                            {% endcomment %}
                                             <!-- Default checkbox -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""

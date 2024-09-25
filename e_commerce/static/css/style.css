@@ -146,20 +146,21 @@ header {
     align-items: center;
 }
 
-.nav-icon a {
+.nav-icon a ,#nav-btn{
     text-decoration: none;
     color: #fff;
     margin-left: 20px;
 }
 
-.nav-icon a i {
+.nav-icon a i ,#nav-btn {
     font-size: 24px;
     transition: color 0.3s ease;
 }
 
-.nav-icon a i:hover {
+.nav-icon a i:hover,#nav-btn:hover {
     color: rgb(192, 138, 14);
 }
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -182,4 +183,8 @@ header {
         margin-right: 0;
         margin-bottom: 10px;
     }
-}  
+}
+
+.errorlist li{
+    color: #fff;
+}

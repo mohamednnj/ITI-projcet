@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">{% endblock%}
+{% block content %}
+<form method="POST" class="" action="{% url 'signup'%}" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div id="loginModal" class="container">
+            <div class="close">&times;</div>
+            <p class="signup-text">Sign up</p>
+            {% if messages %}
+                {% for message in messages %}
+                    <p id="message">{{ message }}</p>
+                {% endfor %}
+            {%endif%}
+            {{form_in}}
+            <button id="signin">Create</button>
+            {% if not signup %}
+                <p class="mt-3 log signup-text">You have acount? <a href="{% url 'homePage' %}">sign in</a></p>
+            {%endif%}
+            
+    </div>
+</form>
+</div>
+{% endblock content %}

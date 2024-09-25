@@ -38,7 +38,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     image = models.ImageField(upload_to='profile_images/')  # Define where images will be uploaded
     prefer = models.ManyToManyField(Product, blank=True)  # Allow empty preferences
     join_date = models.DateTimeField(auto_now_add=True)
-    phone = models.CharField(default="01000000000",null=True,blank=True,validators=[MinLengthValidator(10), MaxLengthValidator(11)])
+    phone = models.CharField(default="",validators=[MinLengthValidator(10), MaxLengthValidator(11)])
     
     objects = UserManager()
 

@@ -1,64 +1,93 @@
-/* 
-    .form-container {
-        width: 99vw;
-        height: 99vh;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-    }
-    form {
-      max-width: 50vw;
-      margin: 50px auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      background-color: #f9f9f9;
-    }
-    
-    Styling the form fields
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 1.2em;
-    }
-    
-    input[type="text"], input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1em;
-    }
-    
-    Styling the button
-    button {
-      background-color: #28a745;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1.2em;
-    }
-    
-    button:hover {
-      background-color: #218838;
-    }
-    
-    Styling the registration link
-    p {
-      text-align: center;
-    }
-    
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    
-    a:hover {
-      text-decoration: underline;
-    }
-     */
+/* login form */
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  color: #ffffff;
+  background-color: #ca740a;
+  font-size: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color .6s ease;
+}
+
+.close:hover,
+.close:focus {
+  background-color: #f0890b;
+  text-decoration: none;
+  cursor: pointer;
+}
+.signin-label{
+  font-family: serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #f4f4f4 ;
+
+}
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background-color: #101010;
+  margin: 15% auto; 
+  padding: 20px;
+  width: 45%;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+}
+
+.modal-content button {
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #f0890b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 55px;
+  max-width: 200px;
+  transition: background-color .5s ease-in-out;
+}
+
+.modal-content button:hover {
+  background-color: rgb(188, 186, 185);
+}
+#message{
+  font-size: 28px;
+  font-weight: 300;
+  font-family: Arial, Helvetica, sans-serif;
+  color: brown;
+}
+.log{
+  margin-top: 10px;
+  color: #fff;
+}
+label {
+  display: none;
+}
+/* login form end */
