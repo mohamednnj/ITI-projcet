@@ -7,7 +7,7 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Process the form data
+            form.save()
             return redirect('success')
     else:
         form = ContactForm()

@@ -1,10 +1,33 @@
 from django import forms
-from django.core.validators import EmailValidator
+from .models import Messages
 
 
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.CharField(validators=[EmailValidator()])
-    phone = forms.CharField(max_length=15)
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
+class ContactForm(forms.ModelForm):
+    class Meta:
+        # email = forms.EmailField(required=True)
+        model = Messages
+        fields = ["name", "email","phone", "subject", "message"]
+    widgets = {
+            'name': forms.TextInput(attrs={
+                'placeholder': 'name',
+                'class': 'form-control',
+                
+            }),
+            'email': forms.EmailInput(attrs={
+                'placeholder': 'email',
+                'class': 'form-control',
+            }),
+            'phone': forms.TextInput(attrs={
+                'placeholder': 'phone',
+                'class': 'form-control',
+            }),
+            'subject': forms.TextInput(attrs={
+                'placeholder': 'subject',
+                'class': 'form-control',
+                'rows': 1,
+            }),
+            'message': forms.Textarea(attrs={
+                'placeholder': 'message',
+                'rows': 3,
+            }),
+    }
