@@ -177,9 +177,29 @@ header {
 .offcanvas{
     width: 90vw;
     max-width: 400px;
-    background-color: #111111ac;
+    background-color: #111111e0;
+}
+.offcanvas-body{
+    overflow: hidden;
 }
 .offcanvas-items{
     display: flex;
     flex-direction: column;
+}
+
+.btn-close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    width: 28px;
+    height: 28px;
+    color: #ffffff;
+    background-color: #e7840a;
+    font-size: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color .6s ease;     
 }

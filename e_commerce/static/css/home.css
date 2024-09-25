@@ -31,6 +31,8 @@ body {
 }
 
 .text-container {
+  width: 600px;
+  max-width: 90vw;
   position: absolute;
   top: 11rem;
   left: 50%;
@@ -41,7 +43,6 @@ body {
   padding: 20px;
   border-radius: 10px;
   height: 240px;
-  width: 600px;
 }
 .text-container p{
    height: 95px;
@@ -101,7 +102,18 @@ body {
 .active.dot {
   background-color: #717171;
 }
-
+@media (max-width: 500px){
+  .slideshow-container{
+    height: 82vh;
+  }
+  .text-container {
+    height: 300px;
+  }
+  .prev,
+  .next {
+    top: 57%;
+  }
+}
 .carousel-container {
   max-width: 1200px;
   margin: auto;
@@ -153,4 +165,4 @@ body {
 
 .dots {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 20px;}
