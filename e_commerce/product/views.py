@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from category.models import Category
 from .models import Product
-from accounts.forms import SignupForm, loginFrom
+from accounts.forms import SignupForm, loginForm
 # Create your views here.
 def product(req):
     categorys = Category.objects.all()
     products = Product.objects.all()
-    form = loginFrom()
+    form = loginForm()
     return render(req,'shop/index.html',{'products':products,'categorys':categorys,'form': form} )

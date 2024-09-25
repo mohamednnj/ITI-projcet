@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from accounts.forms import  loginFrom
+from accounts.forms import  loginForm
 from contact.forms import ContactForm
 from django.http import HttpResponse
 # Create your views here.

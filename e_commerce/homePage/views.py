@@ -1,7 +1,7 @@
 from .models import Banner
 from django.contrib.auth import authenticate, login
 from accounts.models import User
-from accounts.forms import loginFrom
+from accounts.forms import loginForm
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from django.contrib.auth.hashers import make_password
@@ -12,7 +12,7 @@ from product.models import Product
   
     
 def home_page(req):
-    form = loginFrom()
+    form = loginForm()
     banner = Banner.objects.all()
     if req.method == 'POST':
         email = req.POST['email']
