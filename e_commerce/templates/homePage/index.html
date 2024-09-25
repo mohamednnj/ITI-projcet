@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block style %} 
-<link rel="stylesheet" href="{% static 'css/home.css' %}" > 
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock style %}
 
 {% block title %}home page{% endblock title %}
@@ -10,12 +10,12 @@
 {% block content %}
 <div class="slideshow-container">
     {% for ban in banner %}
-    
+
     <div class="slide">
         {% if ban.image %}
-            <img src="{{ban.image.url}}" alt="{{ban.name}}">
+        <img src="{{ban.image.url}}" alt="{{ban.name}}">
         {% else %}
-            <p>No image available.</p>
+        <p>No image available.</p>
         {% endif %}
         <div class="text-container">
             <h2>{{ban.name}}</h2>
@@ -23,7 +23,7 @@
             <button class="shop-now-button">Shop Now</button>
         </div>
     </div>
-    
+
     {% endfor %}
 
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -35,6 +35,25 @@
     <span class="dot" onclick="currentSlide(ban.pk)"></span>
     {% endfor %}
 </div>
+<div class="carousel-container">
+    {% for product in products %}
+    <div class="carousel">
+        <!-- Product Card -->
+        <div class="product-card">
+            <img src="{{product.image}}">
+            <h3>{{product.name}}</h3>
+            <p>{{product.description}}</p>
+            <span>{{product.price}}</span>
+        </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(product.pk)"></span>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}
 
-{% block scriptblock %}<script src="{% static 'js/handelLogin.js' %}"></script>{% endblock scriptblock %}
+{% block scriptblock %}
+<script src="{% static 'js/handelLogin.js' %}"></script>{% endblock scriptblock %}
