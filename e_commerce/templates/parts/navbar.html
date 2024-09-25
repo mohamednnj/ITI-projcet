@@ -36,16 +36,16 @@
                 </div>
             </li>
             <li><a href="{% url 'blog' %}">BLOG</a></li>
-            <li><a href="#">CONTACT</a></li>
+            <li><a href="{% url 'contact' %}">CONTACT</a></li>
         </ul>
         <div class="nav-icon">
             <i class="fi fi-rr-menu-burger" id="nav-btn"></i>
             <a href="#"><i class="fi fi-bs-heart"></i></a>
             <a href="#"><i class="fi fi-ts-cart-arrow-down"></i></a>
             {% if user.id %}
-                <a  class="success" href="{% url 'profile' %}"><i class="fi fi-bs-user"></i></a>
+            <a class="success" href="{% url 'profile' %}"><i class="fi fi-bs-user"></i></a>
             {% else %}
-                <a id="btn-login" href="#"><i class="fi fi-bs-user"></i></a>
+            <a id="btn-login" href="#"><i class="fi fi-bs-user"></i></a>
             {% endif %}
         </div>
     </nav>

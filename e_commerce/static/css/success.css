@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100vh;
+
+  margin: 0;
+
+  background-color: #101010;
+}
+
+.success-message {
+  text-align: center;
+
+  padding: 20px;
+
+  border: 2px solid #adacab;
+
+  border-radius: 5px;
+
+  background-color: #353535;
+
+  color: #f8f8f8;
+}
+a {
+  color: white;
+  transition: color 400ms ease;
+}
+a:hover {
+  color: red;
+}
