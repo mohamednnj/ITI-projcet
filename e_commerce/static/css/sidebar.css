@@ -19,3 +19,6 @@
 .sidebar-and-products {
   display: flex;
 }
+label {
+  display: contents;
+}
