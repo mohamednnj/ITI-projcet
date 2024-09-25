@@ -4,8 +4,8 @@
  const closeBtn = document.getElementsByClassName("close")[0];
  
  var messageElement = document.getElementById('message');
-//  var messageElement2 = document.getElementById('messagee');
- var messageExists = messageElement !== null;
+ var messageElement2 = document.getElementById('home');
+ var messageExists = (messageElement && messageElement2) !== null;
  
  console.log(messageExists); 
  

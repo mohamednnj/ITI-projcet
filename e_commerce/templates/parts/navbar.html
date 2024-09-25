@@ -39,7 +39,24 @@
             <li><a href="#">CONTACT</a></li>
         </ul>
         <div class="nav-icon">
-            <i class="fi fi-rr-menu-burger" id="nav-btn"></i>
+            {% comment %} side list {% endcomment %}
+            <button type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop" id="nav-btn">
+                <i class="fi fi-rr-menu-burger" ></i>
+              </button>
+            <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                <div class="offcanvas-header">
+                    <div class="logo">
+                        <img class="logo-img offcanvas-title" id="staticBackdropLabe" src="{% static 'images/logo.png' %}" alt="Logo">
+                    </div>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div>
+                    I will not close if you click outside of me.
+                  </div>
+                </div>
+              </div>
+              {% comment %} end side list {% endcomment %}
             <a href="#"><i class="fi fi-bs-heart"></i></a>
             <a href="#"><i class="fi fi-ts-cart-arrow-down"></i></a>
             {% if user.id %}
