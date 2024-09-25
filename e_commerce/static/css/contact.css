@@ -6,8 +6,7 @@ form {
   padding-top: 50px;
 }
 label {
-  display: contents;
-  color: white;
+  display: none;
 }
 .fieldWrapper {
   margin: 15px;

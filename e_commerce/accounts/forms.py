@@ -22,7 +22,7 @@ class SignupForm(forms.ModelForm):
             }), 
             'phone': forms.Textarea(attrs={
                 'placeholder': 'phone number', 
-                'class': 'form-control',
+                'class': 'login-form-control',
                 'rows': 1,
             }),
             'password': forms.PasswordInput(attrs={
@@ -38,10 +38,10 @@ class loginFrom(forms.ModelForm):
         widgets = {
             'email': forms.EmailInput(attrs={
                 'placeholder': 'email',
-                'class': 'form-control',
+                'class': 'login-form-control',
             }),
             'password': forms.PasswordInput(attrs={
                 'placeholder': 'password',
-                'class': 'form-control',
+                'class': 'login-form-control',
             }),
         }
