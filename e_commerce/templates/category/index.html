@@ -15,10 +15,12 @@
 
         <div class="col-sm-3">
             <div class="card text-white bg-dark mb-3" id="card">
-                <a href="#"><img class="card-img-top" src="{{category.image.url}}" alt="{{category.name}}" href="#"></a>
+                <a href="{% url 'product_by_category' category.id %}"><img class="card-img-top"
+                        src="{{category.image.url}}" alt="{{category.name}}"
+                        href="{% url 'product_by_category' category.id %}"></a>
                 <div class="card-body">
 
-                    <a href="#" id="imgtitle">
+                    <a href="{% url 'product_by_category' category.id %}" id="imgtitle">
                         <h5 class="card-title text-center">{{category.description}}</h5>
                     </a>
                     <p class="text-center">item {{category.pk}}</p>
