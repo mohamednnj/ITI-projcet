@@ -12,7 +12,7 @@ from product.models import Product
   
     
 def home_page(req):
-    recent_added_product = Product.objects.all()[:5]
+    recent_added_product = Product.objects.all()[:12]
     form = loginForm()
     banner = Banner.objects.all()
     if req.method == 'POST':
