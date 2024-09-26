@@ -10,8 +10,9 @@ def contact(request):
             form.save()
             return redirect('success')
     else:
+        formlogin = loginForm()
         form = ContactForm()
-    return render(request, 'contact/index.html', {'form': form})
+    return render(request, 'contact/index.html', {'formlogin': formlogin, 'form': form})
    
 
 def success(request):

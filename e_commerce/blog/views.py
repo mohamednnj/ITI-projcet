@@ -5,4 +5,4 @@ from accounts.forms import SignupForm, loginForm
 def blog(req):
     blogs = Blog.objects.all()
     form = loginForm()
-    return render(req,'blog/index.html',{'blogs':blogs,'form': form} )
+    return render(req,'blog/index.html',{'blogs':blogs,'formlogin': form} )

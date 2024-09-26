@@ -17,7 +17,7 @@ def signup(req):
             form_in.save()  
             form = loginForm()
             messages.error(req, "Sign-up succsess")
-            return render(req, 'homePage/index.html', {'form': form})
+            return render(req, 'homePage/index.html', {'formlogin': form})
     else:
         form_in = SignupForm()
     return render(req, 'registration/signup.html', {'form_in': form_in})

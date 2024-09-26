@@ -7,4 +7,4 @@ def product(req):
     categorys = Category.objects.all()
     products = Product.objects.all()
     form = loginForm()
-    return render(req,'shop/index.html',{'products':products,'categorys':categorys,'form': form} )
+    return render(req,'shop/index.html',{'products':products,'categorys':categorys,'formlogin': form} )

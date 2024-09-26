@@ -12,12 +12,8 @@ from product.models import Product
   
     
 def home_page(req):
-<<<<<<< HEAD
-    recent_added_product = Product.objects.all()[:10]
-    form = loginFrom()
-=======
+    recent_added_product = Product.objects.all()[:5]
     form = loginForm()
->>>>>>> 800c7f6c34aeb1e0b1be6e15201d02c5f068fde1
     banner = Banner.objects.all()
     if req.method == 'POST':
         email = req.POST['email']
@@ -30,7 +26,7 @@ def home_page(req):
         else:
             # If authentication fails, display an error message
             messages.error(req, "Invalid email or password")
-            return render(req,'homePage/index.html',{'banner':banner, "form":form, 'products_recintly_added':recent_added_product} )
+            return render(req,'homePage/index.html',{'banner':banner, "formlogin":form, 'products_recintly_added':recent_added_product} )
     else:
-        return render(req,'homePage/index.html',{'banner':banner, "form":form, 'products_recintly_added':recent_added_product} )
+        return render(req,'homePage/index.html',{'banner':banner, "formlogin":form, 'products_recintly_added':recent_added_product} )
 
