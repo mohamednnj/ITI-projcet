@@ -1,1 +1,59 @@
-asdadasd
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/productdetails.css' %}">{% endblock%}
+
+{% block title %}{{product.name}}{% endblock title %}
+{% block content %}
+
+
+<body>
+    <div class="product-container">
+        <!-- Image Gallery Section -->
+        <div class="image-gallery">
+            <div class="main-image">
+                <img src="{{product.image.url}}" alt="Main Sofa" id="mainImage">
+            </div>
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <h1>{{product.title}}</h1>
+            <p class="price">{{product.price}}</p>
+
+
+            <div class="options">
+                <p><strong>Category:</strong> {{category.name}}</p>
+
+            </div>
+
+            <!-- Cart Actions -->
+            <div class="cart-actions">
+                <p>Estimated delivery: 12-26 days (International)</p>
+                <p>Free return within 30 days of purchase.</p>
+                <div class="quantity-selector">
+                    <button onclick="decreaseQty()">-</button>
+                    <input type="number" id="qty" value="1">
+                    <button onclick="increaseQty()">+</button>
+                </div>
+                <button class="add-to-cart">ADD TO CART</button>
+                <button class="buy-now">BUY IT NOW</button>
+            </div>
+        </div>
+    </div>
+    <!-- Tabs Section -->
+    <div class="tabs">
+        <button class="tab-btn" onclick="openTab(event, 'description')">Description</button>
+
+        <div id="description" class="tab-content">
+            <p>{{product.description}}</p>
+        </div>
+    </div>
+
+
+
+</body>
+{% block script %}
+<script src="{% static 'js/productdetails.js' %}"></script>
+{% endblock %}
+{% endblock content %}

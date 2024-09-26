@@ -107,7 +107,7 @@
         <div class="row mx-0  ">
             <div class="row-cols-5 d-flex flex-wrap gap-3  ">
                 {% for product in products %}
-                <a href="{% url 'productdetails' %}">
+                <a href="{% url 'productdetails' product.id %}">
                     <div class="card d-flex flex-column align-items-center text-white  mb-3">
                         <div class="card-img-top"> <img src="{{product.image.url}}" alt="{{product.name}}"> </div>
                         <div class="product-category">{{product.category}}</div>

@@ -4,7 +4,7 @@ from django.conf import settings
 from .views import*
 urlpatterns = [
     path('', product,name="product"),
-    path('productdetails', productdetails,name="productdetails")
+    path('productdetails/<int:product_id>/', productdetails, name="productdetails")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
