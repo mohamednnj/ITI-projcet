@@ -8,3 +8,6 @@ def product(req):
     products = Product.objects.all()
     form = loginForm()
     return render(req,'shop/index.html',{'products':products,'categorys':categorys,'formlogin': form} )
+
+def productdetails(request):
+    return render(request, 'shop/productdetails.html')

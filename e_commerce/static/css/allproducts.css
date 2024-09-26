@@ -509,3 +509,6 @@ img {
   width: 78vw;
   float: right;
 }
+a {
+  text-decoration: none;
+}

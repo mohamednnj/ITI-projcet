@@ -3,7 +3,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from .views import*
 urlpatterns = [
-    path('', product,name="product")
+    path('', product,name="product"),
+    path('productdetails', productdetails,name="productdetails")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
