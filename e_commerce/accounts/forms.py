@@ -46,6 +46,10 @@ class loginForm(forms.ModelForm):
                 'placeholder': 'email',
                 'class': 'form-control',
             }),
+            'password': forms.PasswordInput(attrs={
+                 'placeholder': 'password',
+                 'class': 'login-form-control',
+           }),
         }
 
     def __init__(self, *args, **kwargs):
