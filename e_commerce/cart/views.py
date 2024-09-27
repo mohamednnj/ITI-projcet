@@ -4,7 +4,6 @@ from django.http import JsonResponse
 from product.models import *
 from .models import *
 import json
-from django.shortcuts import render
 
 def add_to_cart(request):
     if request.method == 'POST':
@@ -23,9 +22,15 @@ def get_cart(request):
     if request.user.is_authenticated:
         cart = Cart.objects.filter(customer=request.user).first()
         if cart:
-            products = cart.selected_product
-
-            print(products)
-            return render(request,"cart/cart_view.html",{"products": products})
+            products = cart.selected_product.all()
+            product_data = [
+                {
+                    'name': product.name,
+                    'price': product.price,
+                    'image': product.image.url,
+                }
+                for product in products
+            ]
+            return JsonResponse({"products": product_data})
     
     return JsonResponse({"error": "Cart not found"}, status=404)

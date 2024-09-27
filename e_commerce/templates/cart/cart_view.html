@@ -10,10 +10,10 @@
 
 <body>
     <h1>Your Cart</h1>
-    {% if products %}
+    {% if cart_items %}
     <ul>
-        {% for item in products %}
-        <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+        {% for item in cart_items %}
+        <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
         {% endfor %}
     </ul>
     {% else %}
