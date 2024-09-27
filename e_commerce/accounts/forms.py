@@ -9,7 +9,7 @@ class SignupForm(forms.ModelForm):
     
     class Meta:
         model = User
-        fields = ["username", "email", "phone", "password"]  # include all fields
+        fields = ["username",'image', "email", "phone", "password"]  # include all fields
         widgets = {
             'username': forms.TextInput(attrs={
                 'placeholder': 'username',
