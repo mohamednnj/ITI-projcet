@@ -160,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let sideCart = document.getElementById('side-cart');
         sideCart.classList.toggle('open');
     });
+    
 
     // Optional: Close the cart if you click outside of it
     window.addEventListener('click', function(e) {
