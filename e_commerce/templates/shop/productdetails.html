@@ -36,7 +36,16 @@
                     <input type="number" id="qty" value="1">
                     <button onclick="increaseQty()">+</button>
                 </div>
-                <button class="add-to-cart">ADD TO CART</button>
+
+
+                <input type="hidden" name="quantity" value="1">
+                <button id="add-to-cart" data-product-id="{{ product.id }}" class="btn btn-primary">
+                    Add to Cart
+                </button>
+
+
+
+
                 <button class="buy-now">BUY IT NOW</button>
             </div>
         </div>

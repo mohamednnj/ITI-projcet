@@ -1,5 +1,31 @@
+from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+from product.models import *
+from .models import *
+import json
 from django.shortcuts import render
-from accounts.forms import SignupForm, loginFrom
-# form': form
-# form = loginFrom()
-# Create your views here.
+
+def add_to_cart(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        product_id = data.get('product_id')
+        quantity = data.get('quantity')
+
+        # Logic to add the product to the cart
+        # e.g., Cart.objects.create(product=product, quantity=quantity)
+
+        return JsonResponse({'success': True})
+
+    return JsonResponse({'success': False}, status=400)
+
+def get_cart(request):
+    if request.user.is_authenticated:
+        cart = Cart.objects.filter(customer=request.user).first()
+        if cart:
+            products = cart.selected_product
+
+            print(products)
+            return render(request,"cart/cart_view.html",{"products": products})
+    
+    return JsonResponse({"error": "Cart not found"}, status=404)

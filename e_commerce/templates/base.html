@@ -30,14 +30,27 @@
 
     {% endblock content %}
     {% include 'parts/footer.html' %}
+
+    {% block scriptblock %}{% endblock scriptblock %}
+    <div id="side-cart">
+        <h3>Your Cart</h3>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-total">
+            <p>Total: <span id="cart-total-amount">$0.00</span></p>
+            <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="{% static 'js/index.js' %}"></script>
     <script src="{% static 'js/handelLogIn.js' %}"></script>
     <script src="{% static 'js/allproducts.js' %}"></script>
-
-    {% block scriptblock %}{% endblock scriptblock %}
 
 </body>
 

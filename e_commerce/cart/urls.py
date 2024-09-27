@@ -1,10 +1,11 @@
 from django.urls import path
-from django.conf.urls.static import static
-from django.conf import settings
+from . import views
+from .views import add_to_cart
 
 urlpatterns = [
-    
+    path('get_cart/', views.get_cart, name='get_cart'),
+    path('add-to-cart/', add_to_cart, name='add_to_cart'),
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

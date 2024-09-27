@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'homePage.apps.HomepageConfig',
     'contact.apps.ContactConfig',
     'product',
+    'django_extensions',
     'blog.apps.BlogConfig',
 ]
 

@@ -66,11 +66,15 @@
     </ul>
     <div class="nav-icon">
       {% comment %}side list{% endcomment %}
-      <button type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop" id="nav-btn"><i class="fi fi-rr-menu-burger"></i></button>
-      <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+      <button type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"
+        id="nav-btn"><i class="fi fi-rr-menu-burger"></i></button>
+
+      <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+        aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header">
           <div class="logo">
-            <img class="logo-img offcanvas-title" id="staticBackdropLabe" src="{% static 'images/logo.png' %}" alt="Logo" />
+            <img class="logo-img offcanvas-title" id="staticBackdropLabe" src="{% static 'images/logo.png' %}"
+              alt="Logo" />
           </div>
           <div class="btn-close" data-bs-dismiss="offcanvas">&times;</button></div>
         </div>
@@ -80,45 +84,45 @@
               <a href="{% url 'homePage' %}">HOME</a>
             </li>
             <li class="dropdown">
-                <a href="{% url 'product' %}">SHOP <i class="fi fi-ts-angle-small-down"></i></a>
-                <div class="dropdown-menu">
-                  <div class="menu-column">
-                    <h3>Furniture</h3>
-                    <ul>
-                      <li>
-                        <i class="fi fi-bs-couch"></i> <a href="#">Writing Desks</a>
-                      </li>
-                      <li>
-                        <i class="fi fi-bs-couch"></i> <a href="#">Computer Desks</a>
-                      </li>
-                      <li>
-                        <i class="fi fi-bs-couch"></i> <a href="#">Office Chairs</a>
-                      </li>
-                      <li>
-                        <i class="fi fi-bs-couch"></i> <a href="#">File Cabinets</a>
-                      </li>
-                      <li>
-                        <i class="fi fi-bs-couch"></i> <a href="#">Dining Chairs</a>
-                      </li>
-        
+              <a href="{% url 'product' %}">SHOP <i class="fi fi-ts-angle-small-down"></i></a>
+              <div class="dropdown-menu">
+                <div class="menu-column">
+                  <h3>Furniture</h3>
+                  <ul>
+                    <li>
+                      <i class="fi fi-bs-couch"></i> <a href="#">Writing Desks</a>
+                    </li>
+                    <li>
+                      <i class="fi fi-bs-couch"></i> <a href="#">Computer Desks</a>
+                    </li>
+                    <li>
+                      <i class="fi fi-bs-couch"></i> <a href="#">Office Chairs</a>
+                    </li>
+                    <li>
+                      <i class="fi fi-bs-couch"></i> <a href="#">File Cabinets</a>
+                    </li>
+                    <li>
+                      <i class="fi fi-bs-couch"></i> <a href="#">Dining Chairs</a>
+                    </li>
+
                     <h3>Decor & Accessories</h3>
-        
-                      <li>
-                        <i class="fi fi-bs-couch"></i> <a href="#">Pillows & Throws</a>
-                      </li>
-                      <li>
-                        <i class="fi fi-bs-couch"></i> <a href="#">Wall Clocks</a>
-                      </li>
-                      <li>
-                        <i class="fi fi-bs-couch"></i> <a href="#">Wall Art & Mirrors</a>
-                      </li>
-                      <li>
-                        <i class="fi fi-bs-couch"></i> <a href="#">Seasonal Decor</a>
-                      </li>
-                    </ul>
-                  </div>
+
+                    <li>
+                      <i class="fi fi-bs-couch"></i> <a href="#">Pillows & Throws</a>
+                    </li>
+                    <li>
+                      <i class="fi fi-bs-couch"></i> <a href="#">Wall Clocks</a>
+                    </li>
+                    <li>
+                      <i class="fi fi-bs-couch"></i> <a href="#">Wall Art & Mirrors</a>
+                    </li>
+                    <li>
+                      <i class="fi fi-bs-couch"></i> <a href="#">Seasonal Decor</a>
+                    </li>
+                  </ul>
                 </div>
-              </li>
+              </div>
+            </li>
             <li>
               <a href="{% url 'category' %}">CATEGORY</a>
             </li>
@@ -131,13 +135,16 @@
           </ul>
         </div>
       </div>
-      {% comment %}end side list{% endcomment %}
+
       <a href="#"><i class="fi fi-bs-heart"></i></a>
-      <a href="#"><i class="fi fi-ts-cart-arrow-down"></i></a>
+      <a id="cart-icon" href="{% url 'get_cart'%}"><i class="fi fi-ts-cart-arrow-down"></i></a>
+
+
+
       {% if user.id %}
-        <a class="success" href="{% url 'profile' %}"><i class="fi fi-bs-user"></i></a>
+      <a class="success" href="{% url 'profile' %}"><i class="fi fi-bs-user"></i></a>
       {% else %}
-        <a id="btn-login" href="#"><i class="fi fi-bs-user"></i></a>
+      <a id="btn-login" href="#"><i class="fi fi-bs-user"></i></a>
       {% endif %}
     </div>
   </nav>
