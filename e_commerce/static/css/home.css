@@ -44,12 +44,12 @@ body {
   border-radius: 10px;
   height: 240px;
 }
-.text-container p{
-   height: 95px;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 2;
-   overflow: hidden; 
+.text-container p {
+  height: 95px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .shop-now-button {
   background-color: #ff6600;
@@ -79,7 +79,7 @@ body {
   left: 50px;
 }
 
-.next{
+.next {
   right: 50px;
 }
 
@@ -102,8 +102,8 @@ body {
 .active.dot {
   background-color: #717171;
 }
-@media (max-width: 500px){
-  .slideshow-container{
+@media (max-width: 500px) {
+  .slideshow-container {
     height: 82vh;
   }
   .text-container {
@@ -165,4 +165,16 @@ body {
 
 .dots {
   text-align: center;
-  margin-top: 20px;}
+  margin-top: 20px;
+}
+
+.product-slide {
+  transition: color 300ms ease;
+}
+.product-slide:hover {
+  transform: scale(1.02);
+}
+a {
+  all: unset;
+  cursor: pointer;
+}
