@@ -81,16 +81,21 @@ home page
   <div class="main-pro">
     <div class="product-container">
       {% for pro in products_recintly_added %}
-      <div class="product-slide">
-        <div class="image-container">
-          <img src="{{ pro.image.url }}" alt="Modern Ceramic Lamp" />
+      <a href="{% url 'productdetails' pro.id %}">
+        <div class="product-slide">
+
+          <div class="image-container">
+
+            <img src="{{ pro.image.url }}" alt="Modern Ceramic Lamp" />
+
+          </div>
+          <div class="product-info">
+            <p class="category">{{ pro.category }}</p>
+            <h3 class="product-name">{{ pro.name }}</h3>
+            <p class="price">$ {{ pro.price }}</p>
+          </div>
         </div>
-        <div class="product-info">
-          <p class="category">{{ pro.category }}</p>
-          <h3 class="product-name">{{ pro.name }}</h3>
-          <p class="price">$ {{ pro.price }}</p>
-        </div>
-      </div>
+      </a>
       {% endfor %}
       <button class="prev-p">&#10094;</button>
       <button class="next-p">&#10095;</button>
