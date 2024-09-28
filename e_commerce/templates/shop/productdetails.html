@@ -29,18 +29,17 @@
                 <p>Free return within 30 days of purchase.</p>
                 <div class="quantity-selector">
                     <button onclick="decreaseQty()">-</button>
-                    <input type="number" id="qty" value="1">
-                    <button onclick="increaseQty()">+</button>
-                </div>
-
-                <form action="{% url 'add_to_cart' product_id=product.id %}" method="GET">
-                    {% csrf_token %}
-                    <input id="quantity" type="hidden" name="quantity" value="1">
-                    <button onclick="addToCart({{product.id}})" id="add-cart" value="{{ product.id }}" class="btn btn-primary">
+                    <form action="{% url 'add_to_cart' product_id=product.id %}" method="POST">
+                        {% csrf_token %}
+                    <input type="number" id="qty" name="quantity" value="1">
+                    <button  id="add-cart" value="{{ product.id }}" class="btn btn-primary">
                         Add to Cart
                     </button>
-                </form>
+                   </form>
+                    <button onclick="increaseQty()">+</button>
+                
 
+            </div>
                 <button class="buy-now"
                     onclick="window.location.href='{% url 'create_order' product.id %}'">Order Now</button>
             </div>

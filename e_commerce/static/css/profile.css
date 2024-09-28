@@ -1,69 +1,92 @@
-.profile-content{
-    color: #fff;
-    margin-top: 96px;
-    height: 60vh;
-    width: 90vw;
-    display: flex;
-    flex-direction: row;
-    /* align-items: center */
-    margin: 6rem 14rem 14rem 3rem;
+.profile-content {
+  color: #fff;
+  margin-top: 96px;
+  height: 60vh;
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center */
+  margin: 6rem 14rem 14rem 3rem;
 }
-.con-img , .profile-user-info{
-border: 1px solid #fff;
+.con-img,
+.profile-user-info {
+  border: 1px solid #fff;
 }
-.profile-user-info{
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 15px;
-    min-width: 370px;
-    height: 450px;
+.profile-user-info {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  min-width: 370px;
+  height: 450px;
 }
-.con-img{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; 
-    margin: 10px;
+.con-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 10px;
 }
-.user-image{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%; 
+.user-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
-.user-data{
-    font-size: 1.1rem;
-    color: #f0f0f0;
-    transition: color .6s ease-in-out;
+.user-data {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  transition: color 0.6s ease-in-out;
 }
-.user-data:hover{
-    color: chocolate;
+.user-data:hover {
+  color: chocolate;
 }
-.user-name{
-    font-size: 20;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.user-name {
+  font-size: 20;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
-.card-profile-body{
-    margin-left: 3rem;
-    /* display: flex;
+.card-profile-body {
+  margin-left: 3rem;
+  /* display: flex;
     align-items: center;
     justify-content: center; */
-    width: 100%;
+  width: 100%;
 }
-.logout{
-    color: #f0f0f0;
-    background-color: rgb(198, 63, 14);
-    padding: 10px 14px;
-    transition: color .6s ease-in-out;
-    margin: 8px;
-    border-radius: 20px;
+.logout {
+  color: #f0f0f0;
+  background-color: rgb(198, 63, 14);
+  padding: 10px 14px;
+  transition: color 0.6s ease-in-out;
+  margin: 8px;
+  border-radius: 20px;
 }
-.logout:hover{
-    background-color: rgb(236, 72, 13);
+.logout:hover {
+  background-color: rgb(236, 72, 13);
+}
+.profile-title {
+  padding: 20px 20px 20px 7rem;
+  border-bottom: 2px solid #fff;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+footer {
+  display: none;
+}
+h2,
+h1 {
+  text-align: center;
+}
+h1 {
+  margin-right: 104px;
+}
 
-}
-.profile-title{
-    padding: 20px 20px 20px 7rem;
-    border-bottom: 2px solid #fff;
+.order-list {
+  margin: 20px;
+  border-style: outset;
+  border-width: thin;
+  padding: 10px;
 }
