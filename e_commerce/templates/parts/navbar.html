@@ -2,7 +2,9 @@
 <header class="">
   <nav class="navbar">
     <div class="logo">
-      <img class="logo-img" src="{% static 'images/logo.png' %}" alt="Logo" />
+      <a href="{% url 'homePage' %}">
+        <img class="logo-img" src="{% static 'images/logo.png' %}" alt="Logo" />
+      </a>
     </div>
     <ul class="nav-items" id="nav-items">
       <li>
@@ -72,8 +74,10 @@
         aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header">
           <div class="logo">
-            <img class="logo-img offcanvas-title" id="staticBackdropLabe" src="{% static 'images/logo.png' %}"
-              alt="Logo" />
+            <a href="{% url 'homePage' %}">
+              <img class="logo-img offcanvas-title" id="staticBackdropLabe" src="{% static 'images/logo.png' %}"
+                alt="Logo" />
+            </a>
           </div>
           <div class="btn-close" data-bs-dismiss="offcanvas">&times;</button></div>
         </div>
