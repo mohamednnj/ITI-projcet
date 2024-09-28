@@ -1,24 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Cart, Order, OrderItem
+from .models import Cart, Order, OrderItem, CartItem
 from product.models import Product
 from .forms import OrderForm
 from django.contrib.auth.decorators import login_required
 
-@login_required  # Ensure the user is logged in
+@login_required
 def create_order(request, product_id):
-    product = get_object_or_404(Product, id=product_id)  # Get the clicked product
+    product = get_object_or_404(Product, id=product_id)
 
     if request.method == 'POST':
-        form = OrderForm(request.POST, user=request.user, product=product)  # Pass user and product to the form
+        form = OrderForm(request.POST, user=request.user, product=product)  
         if form.is_valid():
             # Create the order
             order = form.save(commit=False)
             order.user = request.user
 
-            # Get the selected quantity from the form
             quantity = form.cleaned_data['quantity']
 
-            # Calculate total price based on quantity and product price
             order.total_price = product.price * quantity
             order.save()
 
@@ -29,8 +27,43 @@ def create_order(request, product_id):
                 quantity=quantity
             )
 
-            return redirect('product')  # Redirect to success page
+            return redirect('product')  
     else:
-        form = OrderForm(user=request.user, product=product)  # Provide the user and product to the form for auto-filling
+        form = OrderForm(user=request.user, product=product)  
     
     return render(request, 'cart/order_form.html', {'form': form, 'product': product})
+
+
+
+def cart_summary(request):
+    return render(request, "cart/cart_summary.html", {})
+
+
+@login_required(login_url='/login/')  
+def add_to_cart(request, product_id):
+
+    product = get_object_or_404(Product, id=product_id)
+
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_item, item_created = CartItem.objects.get_or_create(cart=cart, product=product)
+
+    if not item_created:
+        cart_item.quantity += 1
+        cart_item.save()
+    else:
+        cart_item.quantity = 1
+        cart_item.save()
+
+    return redirect('cart')
+
+
+@login_required(login_url='/login/')
+def cart(request):
+    # Get the user's cart
+    cart = Cart.objects.get(user=request.user)
+    
+    # Get all items in the cart
+    cart_items = cart.items.all()
+    
+    return render(request, 'cart/cart_view.html', {'cart_items': cart_items})
+
