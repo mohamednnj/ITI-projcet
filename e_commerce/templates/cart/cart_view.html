@@ -1,22 +1,84 @@
-{% comment %} <h2>Your Cart</h2>
-<ul>
-    {% for item in cart_items %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Cart {% endblock title %}
+{%block style%}
+<link rel="stylesheet" href="{%static 'css/cart_view.css' %}">{%endblock style%}
+{% block content %}
+
+<div class="container">
+    <!-- <h2>Your Cart</h2>
+    <ul>
+        {% for item in cart_items %}
         <li>{{ item.product.name }} (x{{ item.quantity }})</li>
-    {% endfor %}
-</ul> {% endcomment %}
-{% if cart_items.all > 0 or True %}
-<h2>Your Cart</h2>
-<ul>
-    {% for item in cart_items %}
+        {% endfor %}
+    </ul>
+    {% if cart_items.all > 0 or True %}
+    <ul>
+        {% for item in cart_items %}
         <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
         <li><img src="{{ item.product.image.url }}" alt="" srcset="" width="200px" height="200px"></li>
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul> -->
+    <section class="h-100">
+        <div class="container h-100 py-5">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-10">
 
-<form action="{% url 'convert_cart_to_order' %}" method="post">
-    {% csrf_token %}
-    <button type="submit">Convert Cart to Order</button>
-</form>
-{% else %}
-<p>Your cart is empty.</p>
-{% endif %}
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-normal mb-0">Shopping Cart</h3>
+                    </div>
+                    {% for item in cart_items %}
+                    <div class="card rounded-3 mb-4 bg-dark text-white">
+                        <div class="card-body p-4">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                    <!-- image -->
+                                    <img src="{{ item.product.image.url }}" class="img-fluid rounded-3"
+                                        alt="Cotton T-shirt">
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-3">
+                                    <!-- title -->
+                                    <p class="lead fw-normal mb-2">{{ item.product.name }}</p>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <!-- quantity -->
+                                    <input id="form1" min="0" name="quantity" value="{{ item.quantity }}" type="number"
+                                        class="form-control form-control-sm" />
+
+                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                    <!-- price -->
+                                    <h5 class="mb-0">${{item.product.price}}</h5>
+                                </div>
+                                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <form action="{% url 'convert_cart_to_order' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg">Proceed
+            to Pay</button>
+    </form>
+    {% else %}
+    <p>Your cart is empty.</p>
+    {% endif %}
+</div>
+{% endblock content %}
