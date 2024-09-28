@@ -1,6 +1,22 @@
-<h2>Your Cart</h2>
+{% comment %} <h2>Your Cart</h2>
 <ul>
     {% for item in cart_items %}
         <li>{{ item.product.name }} (x{{ item.quantity }})</li>
     {% endfor %}
+</ul> {% endcomment %}
+{% if cart_items.all > 0 or True %}
+<h2>Your Cart</h2>
+<ul>
+    {% for item in cart_items %}
+        <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
+        <li><img src="{{ item.product.image.url }}" alt="" srcset="" width="200px" height="200px"></li>
+    {% endfor %}
 </ul>
+
+<form action="{% url 'convert_cart_to_order' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Convert Cart to Order</button>
+</form>
+{% else %}
+<p>Your cart is empty.</p>
+{% endif %}

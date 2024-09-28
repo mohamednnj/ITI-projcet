@@ -7,4 +7,5 @@ urlpatterns = [
     path('', cart, name="cart"),
     path('delete', cart_summary, name="cart_delete"),
     path('update', cart_summary, name="cart_update"),
+    path('convert-cart-to-order/', convert_cart_to_order, name='convert_cart_to_order'),
 ]

@@ -4,9 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/productdetails.css' %}">{% endblock%}
 
 {% block title %}{{product.name}}{% endblock title %}
-{% block content %}
-
-
+{% block content %}       
 <body>
     <div class="product-container">
         <!-- Image Gallery Section -->
@@ -21,10 +19,8 @@
             <h1>{{product.title}}</h1>
             <p class="price">{{product.price}}</p>
 
-
             <div class="options">
                 <p><strong>Category:</strong> {{category.name}}</p>
-
             </div>
 
             <!-- Cart Actions -->
@@ -36,8 +32,7 @@
                     <input type="number" id="qty" value="1">
                     <button onclick="increaseQty()">+</button>
                 </div>
-
-
+                
                 <input type="hidden" name="quantity" value="1">
 
                 <form action="{% url 'add_to_cart' product.id %}" method="POST">
@@ -47,27 +42,24 @@
                     </button>
                 </form>
 
-
-
                 <button class="buy-now"
-                    onclick="window.location.href='{% url 'create_order' product.id %}'">OrderNow</button>
+                    onclick="window.location.href='{% url 'create_order' product.id %}'">Order Now</button>
             </div>
         </div>
     </div>
     <!-- Tabs Section -->
     <div class="tabs">
         <button class="tab-btn" onclick="openTab(event, 'description')">Description</button>
+    </div> <!-- Close the tabs div here -->
 
-        <div id="description" class="tab-content">
-            <p>{{product.description}}</p>
-        </div>
+    <div id="description" class="tab-content">
+        <p>{{product.description}}</p>
     </div>
-
-
 
 </body>
 {% block script %}
 {% comment %}
+/* Uncomment the following script to enable AJAX functionality */
 <script src="{% static 'js/productdetails.js' %}"></script> {% endcomment %}
 {% endblock %}
 {% comment %}
@@ -79,7 +71,7 @@
             url: '{% url cart_add%}',
             data: {
                 product_id: $('#add-cart').val(),
-                csrfmiddlewaretoke: '{{ csrf_token }}',
+                csrfmiddlewaretoken: '{{ csrf_token }}',
                 action: 'POST'
             },
             success: function (json) {
@@ -88,8 +80,6 @@
             error: function (xhr, errmsg, err) {
 
             }
-
-
         });
     })
 </script> {% endcomment %}
