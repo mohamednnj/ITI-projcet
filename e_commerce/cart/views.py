@@ -109,9 +109,8 @@ def convert_cart_to_order(request):
 
         return redirect('login')
 
-    return redirect('cart_detail')
+    return redirect('cart')
  
-    from django.shortcuts import get_object_or_404, redirect
 from .models import CartItem
 @login_required(login_url='/login/')
 def delete_from_cart(request, item_id):
