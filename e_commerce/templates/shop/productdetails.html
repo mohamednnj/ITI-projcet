@@ -64,12 +64,13 @@
     </div>
 
 
-    <script src="{% static 'js/productdetails.js' %}"></script>
-    <script src="{% static 'js/cart.js' %}"></script>
+
 </body>
 {% block script %}
-<script src="{% static 'js/productdetails.js' %}"></script>
+{% comment %}
+<script src="{% static 'js/productdetails.js' %}"></script> {% endcomment %}
 {% endblock %}
+{% comment %}
 <script>
     $(document).on('click', '#add-cart', function (e) {
         e.preventDefault();
@@ -91,5 +92,5 @@
 
         });
     })
-</script>
+</script> {% endcomment %}
 {% endblock content %}
