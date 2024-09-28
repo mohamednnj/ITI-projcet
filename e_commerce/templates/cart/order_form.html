@@ -1,43 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <form method="POST">
         {% csrf_token %}
         <h2>Order for {{ product.name }}</h2>
-    
+
         <div>
             <label for="username">Username</label>
             {{ form.username }}
         </div>
-    
+
         <div>
             <label for="email">Email</label>
             {{ form.email }}
         </div>
-    
+
         <div>
             <label for="address">Address</label>
             {{ form.address }}
         </div>
-    
+
         <div>
             <label for="total_price">Price</label>
-            {{ form.total_price }}  <!-- Auto-populated and read-only -->
+            {{ form.total_price }} <!-- Auto-populated and read-only -->
         </div>
-    
+
         <div>
             <label for="quantity">Quantity</label>
-            {{ form.quantity }}  <!-- User selects quantity -->
+            {{ form.quantity }} <!-- User selects quantity -->
         </div>
-    
+
         <button type="submit">Place Order</button>
     </form>
-    
+
 </body>
+
 </html>
