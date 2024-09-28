@@ -1,31 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}
-  <link rel="stylesheet" href="{% static 'css/productdetails.css' %}" />
+<link rel="stylesheet" href="{% static 'css/productdetails.css' %}" />
 {% endblock %}
 
 {% block title %}
-  {{ product.name }}
+{{ product.name }}
 {% endblock %}
 {% block content %}
-  <body>
-    <div class="product-container">
-      <!-- Image Gallery Section -->
-      <div class="image-gallery">
-        <div class="main-image">
-          <img src="{{ product.image.url }}" alt="Main Sofa" id="mainImage" />
-        </div>
+
+<body>
+  <div class="product-container">
+    <!-- Image Gallery Section -->
+    <div class="image-gallery">
+      <div class="main-image">
+        <img src="{{ product.image.url }}" alt="Main Sofa" id="mainImage" />
+      </div>
+    </div>
+
+    <!-- Product Details Section -->
+    <div class="product-details">
+      <h1>{{ product.title }}</h1>
+      <p class="price">{{ product.price }}</p>
+
+      <div class="options">
+        <p>
+          <strong>Category:</strong> {{ category.name }}
+        </p>
       </div>
 
       <!-- Product Details Section -->
       <div class="product-details">
-        <h1>{{ product.title }}</h1>
-        <p class="price">{{ product.price }}</p>
+        <h1>{{product.title}}</h1>
+        <p class="price">{{product.price}}</p>
 
         <div class="options">
-          <p>
-            <strong>Category:</strong> {{ category.name }}
-          </p>
+          <p><strong>Category:</strong> {{product.category}}</p>
         </div>
 
         <!-- Product Details Section -->
@@ -33,9 +43,7 @@
             <h1>{{product.title}}</h1>
             <p class="price">{{product.price}}</p>
 
-            <div class="options">
-                <p><strong>Category:</strong> {{product.category}}</p>
-            </div>
+          <input type="hidden" name="quantity" value="1">
 
             <!-- Cart Actions -->
             <div class="cart-actions">
@@ -60,17 +68,18 @@
         </div>
       </div>
     </div>
-    <!-- Tabs Section -->
-    <div class="tabs">
-      <button class="tab-btn" onclick="openTab(event, 'description')">Description</button>
-    </div> <!-- Close the tabs div here -->
+  </div>
+  <!-- Tabs Section -->
+  <div class="tabs">
+    <button class="tab-btn" onclick="openTab(event, 'description')">Description</button>
+  </div> <!-- Close the tabs div here -->
 
-    <div id="description" class="tab-content">
-      <p>{{ product.description }}</p>
-    </div>
-  </body>
+  <div id="description" class="tab-content">
+    <p>{{ product.description }}</p>
+  </div>
+</body>
 {% endblock %}
 
 {% block scriptblock %}
-  <script src="{% static 'js/productdetails.js' %}"></script>
+<script src="{% static 'js/productdetails.js' %}"></script>
 {% endblock %}
