@@ -39,7 +39,7 @@
 
 
                 <input type="hidden" name="quantity" value="1">
-                <button id="add-to-cart" data-product-id="{{ product.id }}" class="btn btn-primary">
+                <button id="add-cart" value="{{ product.id }}" class="btn btn-primary">
                     Add to Cart
                 </button>
 
@@ -65,4 +65,26 @@
 {% block script %}
 <script src="{% static 'js/productdetails.js' %}"></script>
 {% endblock %}
+<script>
+    $(document).on('click', '#add-cart', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{% url cart_add%}',
+            data: {
+                product_id: $('#add-cart').val(),
+                csrfmiddlewaretoke: '{{ csrf_token }}',
+                action: 'POST'
+            },
+            success: function (json) {
+                console.log(json)
+            },
+            error: function (xhr, errmsg, err) {
+
+            }
+
+
+        });
+    })
+</script>
 {% endblock content %}
