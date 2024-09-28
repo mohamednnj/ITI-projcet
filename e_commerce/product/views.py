@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from category.models import Category
+from cart.models import *
+from cart.views import *
 from .models import Product
 from category.forms import CategoryFilterForm
 from accounts.forms import SignupForm, loginForm
