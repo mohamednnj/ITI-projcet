@@ -74,5 +74,19 @@ body {
   height: 100%;
 }
 footer {
-  position: fixed;
+  display: none;
+}
+h2,
+h1 {
+  text-align: center;
+}
+h1 {
+  margin-right: 104px;
+}
+
+.order-list {
+  margin: 20px;
+  border-style: outset;
+  border-width: thin;
+  padding: 10px;
 }

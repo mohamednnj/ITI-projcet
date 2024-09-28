@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %} Profile {% endblock title %}
-{%block style%}<link rel="stylesheet" href="{%static 'css/profile.css' %}">{%endblock style%}
+{%block style%}
+<link rel="stylesheet" href="{%static 'css/profile.css' %}">{%endblock style%}
 
 
 {% block content %}
 <div class="profile-content">
-  
-  <div class="profile-user-info" >
+
+  <div class="profile-user-info">
     <div class="con-img">
       {% if user.image %}
-        <img src="{{user.image.url}}" class="user-image" alt="User Image" >
+      <img src="{{user.image.url}}" class="user-image" alt="User Image">
       {% else %}
-        <img src="{{user.image.url}}" class="user-image" alt="User Image" >
+      <img src="{{user.image.url}}" class="user-image" alt="User Image">
       {% endif %}
     </div>
     <p class="user-data name-name">{{user.username}}</p>
@@ -20,7 +21,7 @@
     <p class="user-data">{{user.email}}</p>
     <form method="POST" action="{% url 'logout' %}">
       {% csrf_token %}
-      <button class="logout"type="submit"><i class="fi fi-bs-user">Logout</i></button>
+      <button class="logout" type="submit"><i class="fi fi-bs-user">Logout</i></button>
     </form>
   </div>
 
@@ -30,27 +31,27 @@
     <h2>Order history</h2>
     {% if orders %}
     <ul>
-        {% for order in orders %}
-            <li>
-                <strong>Created At:</strong> {{ order.created_at }}<br>
-                <strong>Total Price:</strong> {{ order.total_price }}<br>
-                <strong>Address:</strong> {{ order.address }}<br>
-                <strong>Status:</strong> {{ order.status }}<br>
+      {% for order in orders %}
+      <li class="order-list">
+        <strong>Created At:</strong> {{ order.created_at }}<br>
+        <strong>Total Price:</strong> {{ order.total_price }}<br>
+        <strong>Address:</strong> {{ order.address }}<br>
+        <strong>Status:</strong> {{ order.status }}<br>
 
-                <h4>Order Items:{{ order.created_id }}</h4>
-                <ul>
-                    {% for item in order.items.all %}
-                        <li>
-                            {{ item.product.name }} - Quantity: {{ item.quantity }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
+        <h4>Order Items:{{ order.created_id }}</h4>
+        <ul>
+          {% for item in order.items.all %}
+          <li>
+            {{ item.product.name }} - Quantity: {{ item.quantity }}
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
     </ul>
-{% else %}
+    {% else %}
     <p>You have no orders yet.</p>
-{% endif %}
+    {% endif %}
 
   </div>
 
