@@ -512,3 +512,23 @@ img {
 a {
   text-decoration: none;
 }
+@media only screen and (min-device-width: 1px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .product-category {
+    font-size: small;
+  }
+
+  .card .product-name {
+    font-size: small;
+    margin-top: 33px;
+    margin-bottom: 40px;
+  }
+  .card:not(#navbarSupportedContent) {
+    width: 30vw;
+  }
+  .gap-3 {
+    gap: 13vw !important;
+  }
+  h1 {
+    width: max-content;
+  }
+}

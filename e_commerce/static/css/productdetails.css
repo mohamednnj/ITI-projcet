@@ -129,3 +129,8 @@ h1 {
 .twobtn {
   width: max-content;
 }
+@media only screen and (min-device-width: 1px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .product-details {
+    width: 100%;
+  }
+}
