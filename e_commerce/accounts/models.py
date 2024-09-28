@@ -28,6 +28,7 @@ class UserManager(BaseUserManager):
         return user
 
 # User Model
+
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     username = models.CharField(max_length=255, unique=True)
@@ -35,8 +36,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)  # Staff can access the admin site
     is_superuser = models.BooleanField(default=False)
-    image = models.ImageField(upload_to='profile_images/')  # Define where images will be uploaded
-    prefer = models.ManyToManyField(Product, blank=True)  # Allow empty preferences
+    image = models.ImageField(upload_to='profile_images/') 
+    prefer = models.ManyToManyField(Product, blank=True)  
     join_date = models.DateTimeField(auto_now_add=True)
     phone = models.CharField(default="",validators=[MinLengthValidator(10), MaxLengthValidator(11)])
     
@@ -56,4 +57,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     # @property 
     # def is_staff(self):
     #     return self.is_admin
-    
