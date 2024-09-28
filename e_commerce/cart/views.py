@@ -42,23 +42,24 @@ def cart_summary(request):
 @login_required(login_url='/login/') 
 
 def add_to_cart(request, product_id):
-    quantity = int(request.POST.get('quantity', 1))  
+    quantity = int(request.POST.get('quantity', 1))
+    
     product = get_object_or_404(Product, id=product_id)
 
     if request.user.is_authenticated:
-        
         cart, created = Cart.objects.get_or_create(user=request.user)
-        
 
         cart_item, item_created = CartItem.objects.get_or_create(cart=cart, product=product)
-        cart_item.quantity += quantity
+
+        if item_created:
+            cart_item.quantity = quantity
+        else:
+            cart_item.quantity += quantity
         cart_item.save()
-        
-        # Redirect to the cart page or any other page
-        return redirect('cart')
+        return redirect('cart')  
     else:
-        # If the user is not logged in, redirect to the login page
         return redirect('login')
+
 
 @login_required(login_url='/login/')
 def cart(request):
@@ -71,27 +72,58 @@ def cart(request):
     return render(request, 'cart/cart_view.html', {'cart_items': cart_items})
 
 
-
+@login_required(login_url='/login/')
 def convert_cart_to_order(request):
     if request.method == 'POST':
+        # Get the address from the form submission
         address = request.POST.get('address')
+
+        # Ensure the user is authenticated
         if request.user.is_authenticated:
+            # Retrieve the user's cart
             cart = Cart.objects.filter(user=request.user).first()
+
             if cart:
-                order = Order.objects.create(user=request.user, total_price=0, address=address) 
+                order = Order.objects.create(
+                    user=request.user,
+                    total_price=0,  
+                    address=address
+                )
 
                 total_price = 0
-                
                 for item in cart.items.all():
-                    OrderItem.objects.create(order=order, product=item.product, quantity=item.quantity)
+                    OrderItem.objects.create(
+                        order=order,
+                        product=item.product,
+                        quantity=item.quantity
+                    )
+
                     total_price += item.product.price * item.quantity
 
                 order.total_price = total_price
                 order.save()
 
                 cart.items.all().delete()
-                
-                return redirect('profile') 
+
+                return redirect('profile')
+
+        return redirect('login')
+
+    return redirect('cart_detail')
+ 
+    from django.shortcuts import get_object_or_404, redirect
+from .models import CartItem
+@login_required(login_url='/login/')
+def delete_from_cart(request, item_id):
+    if request.user.is_authenticated:
+        # Retrieve the cart item to be deleted, or raise a 404 if it doesn't exist
+        cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
+        
+        # Delete the cart item from the cart
+        cart_item.delete()
+
+        # Redirect to the cart page after deletion
+        return redirect('cart')  # Ensure 'cart' points to your cart view or URL
     else:
-        return redirect('login')  
-    
+        # Redirect to login if the user is not authenticated
+        return redirect('login')

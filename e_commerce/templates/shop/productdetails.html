@@ -28,22 +28,6 @@
           </p>
         </div>
 
-<<<<<<< HEAD
-        <!-- Cart Actions -->
-        <div class="cart-actions">
-          <p>Estimated delivery: 12-26 days (International)</p>
-          <p>Free return within 30 days of purchase.</p>
-          <div class="quantity-selector">
-            <button onclick="decreaseQty()">-</button>
-            <form action="{% url 'add_to_cart' product_id=product.id %}" method="POST">
-              {% csrf_token %}
-              <input type="number" id="qty" name="quantity" value="1" />
-              <button id="add-cart" value="{{ product.id }}" class="btn btn-primary">Add to Cart</button>
-            </form>
-            <button onclick="increaseQty()">+</button>
-          </div>
-          <button class="buy-now" onclick="window.location.href='{% url 'create_order' product.id %}'">Order Now</button>
-=======
         <!-- Product Details Section -->
         <div class="product-details">
             <h1>{{product.title}}</h1>
@@ -58,25 +42,21 @@
                 <p>Estimated delivery: 12-26 days (International)</p>
                 <p>Free return within 30 days of purchase.</p>
                 <div class="quantity-selector">
-                    <button onclick="decreaseQty()">-</button>
-                    <input type="number" id="qty" value="1">
-                    <button onclick="increaseQty()">+</button>
-                </div>
-
-                <input type="hidden" name="quantity" value="1">
-
-                <form action="{% url 'add_to_cart' product.id %}" method="POST" style="display: contents;">
+                  <button onclick="decreaseQty()">-</button>
+                  <form action="{% url 'add_to_cart' product.id %}" method="POST" style="display: contents;">
                     {% csrf_token %}
+                    <input type="number" id="qty" name="quantity" value="1">
                     <button id="add-cart" value="{{ product.id }}" class="btn btn-primary">
-                        Add to Cart
+                      Add to Cart
                     </button>
-                </form>
+                  </form>
+                  <button onclick="increaseQty()">+</button>
+                </div>                
 
                 <button class="buy-now btn btn-primary"
                     onclick="window.location.href='{% url 'create_order' product.id %}'">Order
                     Now</button>
             </div>
->>>>>>> 635648f3107a00ff592fc210f49cefd32341d876
         </div>
       </div>
     </div>

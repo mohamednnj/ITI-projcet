@@ -51,6 +51,10 @@
                                 </div>
                             </div>
                         </div>
+                        <form action="{% url 'delete_from_cart' item_id=item.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit">Remove</button>
+                        </form>
                     </div>
                     {% endfor %}
 
