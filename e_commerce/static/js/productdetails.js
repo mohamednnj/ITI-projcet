@@ -1,4 +1,3 @@
-
 function changeImage(imageSrc) {
     document.getElementById("mainImage").src = imageSrc;
 }
@@ -30,3 +29,14 @@ function openTab(evt, tabName) {
 
 // Set default tab
 document.getElementById("description").style.display = "block";
+
+function addToCart(productId) {
+        // Get the quantity from the hidden input field
+        var quantity = document.getElementById("quantity").value;
+
+        // Construct the URL by passing quantity as a query parameter
+        var url = '/cart/add/' + productId + '/?quantity=' + quantity;
+
+        // Redirect to the constructed URL
+        window.location.href = url;
+    }

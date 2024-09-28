@@ -13,27 +13,27 @@
     
         <div>
             <label for="username">Username</label>
-            {{ form.username }}
+            {{ form_order.username }}
         </div>
     
         <div>
             <label for="email">Email</label>
-            {{ form.email }}
+            {{ form_order.email }}
         </div>
     
         <div>
             <label for="address">Address</label>
-            {{ form.address }}
+            {{ form_order.address }}
         </div>
     
         <div>
             <label for="total_price">Price</label>
-            {{ form.total_price }}  <!-- Auto-populated and read-only -->
+            {{ form_order.total_price }}  <!-- Auto-populated and read-only -->
         </div>
     
         <div>
             <label for="quantity">Quantity</label>
-            {{ form.quantity }}  <!-- User selects quantity -->
+            {{ form_order.quantity }}  <!-- User selects quantity -->
         </div>
     
         <button type="submit">Place Order</button>
