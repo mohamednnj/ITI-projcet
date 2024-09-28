@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from category.models import Category
+from category.models import *
 from cart.models import *
 from cart.views import *
-from .models import Product
+from .models import Product,Category
 from category.forms import CategoryFilterForm
 from accounts.forms import SignupForm, loginForm
 
