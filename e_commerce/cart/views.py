@@ -31,7 +31,7 @@ def create_order(request, product_id):
     else:
         form = OrderForm(user=request.user, product=product)  
     
-    return render(request, 'cart/order_form.html', {'form': form, 'product': product})
+    return render(request, 'cart/order_form.html', {'form_order': form, 'product': product})
 
 
 
@@ -39,23 +39,26 @@ def cart_summary(request):
     return render(request, "cart/cart_summary.html", {})
 
 
-@login_required(login_url='/login/')  
-def add_to_cart(request, product_id):
+@login_required(login_url='/login/') 
 
+def add_to_cart(request, product_id):
+    quantity = int(request.POST.get('quantity', 1))  
     product = get_object_or_404(Product, id=product_id)
 
-    cart, created = Cart.objects.get_or_create(user=request.user)
-    cart_item, item_created = CartItem.objects.get_or_create(cart=cart, product=product)
+    if request.user.is_authenticated:
+        
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        
 
-    if not item_created:
-        cart_item.quantity += 1
+        cart_item, item_created = CartItem.objects.get_or_create(cart=cart, product=product)
+        cart_item.quantity += quantity
         cart_item.save()
+        
+        # Redirect to the cart page or any other page
+        return redirect('cart')
     else:
-        cart_item.quantity = 1
-        cart_item.save()
-
-    return redirect('cart')
-
+        # If the user is not logged in, redirect to the login page
+        return redirect('login')
 
 @login_required(login_url='/login/')
 def cart(request):
@@ -70,23 +73,25 @@ def cart(request):
 
 
 def convert_cart_to_order(request):
-    if request.user.is_authenticated:
-        cart = Cart.objects.filter(user=request.user).first()
-        if cart:
-            # Create a new order
-            order = Order.objects.create(user=request.user, total_price=0, address="Your Address Here") 
+    if request.method == 'POST':
+        address = request.POST.get('address')
+        if request.user.is_authenticated:
+            cart = Cart.objects.filter(user=request.user).first()
+            if cart:
+                order = Order.objects.create(user=request.user, total_price=0, address=address) 
 
-            total_price = 0
-            
-            for item in cart.items.all():
-                OrderItem.objects.create(order=order, product=item.product, quantity=item.quantity)
-                total_price += item.product.price * item.quantity
+                total_price = 0
+                
+                for item in cart.items.all():
+                    OrderItem.objects.create(order=order, product=item.product, quantity=item.quantity)
+                    total_price += item.product.price * item.quantity
 
-            order.total_price = total_price
-            order.save()
+                order.total_price = total_price
+                order.save()
 
-            cart.items.all().delete()
-            
-            return redirect('profile') 
+                cart.items.all().delete()
+                
+                return redirect('profile') 
     else:
         return redirect('login')  
+    
