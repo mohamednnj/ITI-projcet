@@ -4,7 +4,6 @@ from product.models import Product
 from .forms import OrderForm
 from django.contrib.auth.decorators import login_required
 
-<<<<<<< HEAD
 @login_required  # Ensure the user is logged in
 def create_order(request, product_id):
     product = get_object_or_404(Product, id=product_id)  # Get the clicked product
@@ -35,18 +34,3 @@ def create_order(request, product_id):
         form = OrderForm(user=request.user, product=product)  # Provide the user and product to the form for auto-filling
     
     return render(request, 'cart/order_form.html', {'form': form, 'product': product})
-=======
-
-def cart_summary(request):
-    return render(request, "cart/cart_summary.html", {})
-
-
-
-
-def cart_add(request):
-    pass
-def cart_delete(request):
-    pass
-def cart_update(request):
-    pass
->>>>>>> edc58cd2aa223de0d64ba8d625a91adcfef0110b
