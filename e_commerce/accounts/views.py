@@ -3,10 +3,16 @@ from .forms import SignupForm, loginForm
 from .models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
+from cart.models import Order
 
 # Create your views here.
 def profile_view(req):
-    return render(req, "accounts/profile.html")
+    if req.user.is_authenticated:
+        orders = Order.objects.filter(user=req.user)
+    else:
+        orders = None  # Or you could redirect to login page or show a message
+    
+    return render(req, "accounts/profile.html",{'orders': orders})
 
 def signup(req):
     if req.method == 'POST':
@@ -21,3 +27,4 @@ def signup(req):
     else:
         form_in = SignupForm()
     return render(req, 'registration/signup.html', {'form_in': form_in})
+
