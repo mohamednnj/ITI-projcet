@@ -51,7 +51,7 @@ def add_to_cart(request, product_id):
 
         cart_item, item_created = CartItem.objects.get_or_create(cart=cart, product=product)
 
-        if item_created:
+        if not item_created:
             cart_item.quantity = quantity
         else:
             cart_item.quantity += quantity
@@ -78,7 +78,6 @@ def convert_cart_to_order(request):
         # Get the address from the form submission
         address = request.POST.get('address')
 
-        # Ensure the user is authenticated
         if request.user.is_authenticated:
             # Retrieve the user's cart
             cart = Cart.objects.filter(user=request.user).first()
