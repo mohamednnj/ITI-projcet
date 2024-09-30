@@ -13,3 +13,10 @@ h2,
 h3 {
   text-align: center;
 }
+#Removebtn {
+  margin: 11px;
+}
+#address {
+  border-radius: 8px;
+  height: 50px;
+}

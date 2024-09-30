@@ -130,7 +130,7 @@ header {
 /* Navigation Icons */
 .nav-icon {
   display: flex;
-  align-items: center;
+  align-self: end;
 }
 
 .nav-icon a,
@@ -163,8 +163,8 @@ header {
   }
 
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
+    display: flex;
   }
 
   .nav-items {
