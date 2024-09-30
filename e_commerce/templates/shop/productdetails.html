@@ -18,61 +18,49 @@
       </div>
     </div>
 
+
+
     <!-- Product Details Section -->
     <div class="product-details">
-      <h1>{{ product.title }}</h1>
-      <p class="price">{{ product.price }}</p>
+      <h1>{{product.name}}</h1>
+      <p class="price">{{product.price}}</p>
 
       <div class="options">
-        <p>
-          <strong>Category:</strong> {{ category.name }}
-        </p>
+        <p><strong>Category:</strong> {{product.category}}</p>
       </div>
 
-      <!-- Product Details Section -->
-      <div class="product-details">
-        <h1>{{product.title}}</h1>
-        <p class="price">{{product.price}}</p>
 
-        <div class="options">
-          <p><strong>Category:</strong> {{product.category}}</p>
+
+      <input type="hidden" name="quantity" value="1">
+
+      <!-- Cart Actions -->
+      <div class="cart-actions">
+        <p>Estimated delivery: 12-26 days (International)</p>
+        <p>Free return within 30 days of purchase.</p>
+        <div class="quantity-selector">
+          <button onclick="decreaseQty()">-</button>
+          <form action="{% url 'add_to_cart' product.id %}" target="blank" method="POST" style="display: contents;">
+            {% csrf_token %}
+            <input type="number" id="qty" name="quantity" value="1">
+            <button id="add-cart" value="{{ product.id }}" class="btn btn-primary" onclick="ExistingLogic()"
+              style="display: none;">
+              Add to Cart
+            </button>
+          </form>
+          <button onclick="increaseQty()">+</button>
+
         </div>
-
-        <!-- Product Details Section -->
-        <div class="product-details">
-          <h1>{{product.title}}</h1>
-          <p class="price">{{product.price}}</p>
-
-          <input type="hidden" name="quantity" value="1">
-
-          <!-- Cart Actions -->
-          <div class="cart-actions">
-            <p>Estimated delivery: 12-26 days (International)</p>
-            <p>Free return within 30 days of purchase.</p>
-            <div class="quantity-selector">
-              <button onclick="decreaseQty()">-</button>
-              <form action="{% url 'add_to_cart' product.id %}" target="blank" method="POST" style="display: contents;">
-                {% csrf_token %}
-                <input type="number" id="qty" name="quantity" value="1">
-                <button id="add-cart" value="{{ product.id }}" class="btn btn-primary" onclick="ExistingLogic()"
-                  style="display: none;">
-                  Add to Cart
-                </button>
-              </form>
-              <button onclick="increaseQty()">+</button>
-
-            </div>
-            <div class="twobtn">
-              <button id="second-add-cart" class="btn btn-primary"
-                onclick="document.getElementById('add-cart').click()">Add to Cart </button>
-              <button class="buy-now btn btn-primary"
-                onclick="window.location.href='{% url 'create_order' product.id %}'">Order
-                Now</button>
-            </div>
-          </div>
+        <div class="twobtn">
+          <button id="second-add-cart" class="btn btn-primary" onclick="document.getElementById('add-cart').click()">Add
+            to Cart </button>
+          <button class="buy-now btn btn-primary"
+            onclick="window.location.href='{% url 'create_order' product.id %}'">Order
+            Now</button>
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
   <!-- Tabs Section -->
   <div class="tabs">

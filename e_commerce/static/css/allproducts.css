@@ -494,6 +494,7 @@ input[type="range"]::-webkit-slider-thumb {
 .mx-0 {
   padding-left: 0px;
   padding-top: 89px;
+  width: fit-content;
 }
 .product-category {
   color: #808080cc;
@@ -531,4 +532,7 @@ a {
   h1 {
     width: max-content;
   }
+}
+#cards {
+  justify-content: space-around;
 }
