@@ -77,10 +77,12 @@ body {
 
 .prev {
   left: 50px;
+  border-radius: 13px;
 }
 
 .next {
   right: 50px;
+  border-radius: 13px;
 }
 
 .dot-container {
@@ -112,6 +114,7 @@ body {
   .prev,
   .next {
     top: 57%;
+    border-radius: 13px;
   }
 }
 .carousel-container {
