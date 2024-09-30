@@ -1,5 +1,5 @@
 let slidesIndexP = 0; 
-const slidesToShow = 4; 
+const slidesToShow = 5; 
 
 document.addEventListener("DOMContentLoaded", function () {
     showSlidesP(slidesIndexP);
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function showSlidesP(startIndex) {
     let slidesP = document.getElementsByClassName("product-slide");
+    let dotsP = document.getElementsByClassName(".dot-p");
 
     Array.from(slidesP).forEach(slide => (slide.style.display = "none"));
 
@@ -37,12 +38,14 @@ function showSlidesP(startIndex) {
 
     for (let i = slidesIndexP; i < slidesIndexP + slidesToShow && i < slidesP.length; i++) {
         slidesP[i].style.display = "block"; 
-    }
+    }  
 }
 
 function plusSlidesP(n) {
     slidesIndexP += n * slidesToShow; 
     showSlidesP(slidesIndexP);
+    dotsP[i].className += "active"
+    dotsP[i-1].className.replace(" active", "");
 }
 
 function currentSlideP(n) {

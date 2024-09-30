@@ -59,6 +59,7 @@ document.addEventListener('mouseleave', function(event) {
     }
 
 // handel navbar
+window.onload = plusSlides(1);  
 
 function addParagraphToNavbar() {
     const windowWidth = window.innerWidth;

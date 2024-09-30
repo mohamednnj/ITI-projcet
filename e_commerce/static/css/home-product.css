@@ -130,7 +130,6 @@
   margin: 5px;
   cursor: pointer;
 }
-
-.dot-p:first-child {
+.dots-container .active {
   background-color: white;
 }

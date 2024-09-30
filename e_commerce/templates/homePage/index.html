@@ -35,7 +35,7 @@ home page
 
 <div class="dot-container">
   {% for ban in banner %}
-  <span class="dot" onclick="currentSlide(ban.pk)"></span>
+    <span class="dot" onclick="currentSlide({{ ban.pk }})"></span>
   {% endfor %}
 </div>
 <div class="carousel-container">
@@ -101,7 +101,7 @@ home page
       <button class="next-p">&#10095;</button>
     </div>
     <div class="dots-container">
-      {% for pro in products_recintly_added %}
+      {% for pro in products_recintly_added|slice:":4" %}
       <span class="dot-p"></span>
       {% endfor %}
     </div>
