@@ -114,7 +114,6 @@ body {
   .prev,
   .next {
     top: 57%;
-    border-radius: 13px;
   }
 }
 .carousel-container {
