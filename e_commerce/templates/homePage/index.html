@@ -24,7 +24,9 @@ home page
     <div class="text-container">
       <h2>{{ ban.name }}</h2>
       <p>{{ ban.description }}</p>
-      <button class="shop-now-button">Shop Now</button>
+      <a href="{% url 'product' %}">
+        <button class="shop-now-button">Shop Now</button>
+      </a>
     </div>
   </div>
   {% endfor %}
@@ -35,7 +37,7 @@ home page
 
 <div class="dot-container">
   {% for ban in banner %}
-    <span class="dot" onclick="currentSlide({{ ban.pk }})"></span>
+  <span class="dot" onclick="currentSlide({{ ban.pk }})"></span>
   {% endfor %}
 </div>
 <div class="carousel-container">
